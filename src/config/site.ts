@@ -1,7 +1,3 @@
-// Flip to `false` if scroll-snap feels janky.
-// When true, each section locks to viewport on desktop; mobile always free-scrolls.
-export const SCROLL_SNAP = true;
-
 export const SITE = {
   name: "Adrian Barnes",
   title: "Adrian Barnes — Principal Frontend Engineer",

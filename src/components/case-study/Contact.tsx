@@ -1,16 +1,16 @@
-import { contact } from "@/content/portfolio";
+import { CONTACT } from "@/content/portfolio";
 
-export default function Contact() {
+export default function CaseStudyContact() {
   return (
     <section
       className="section contact"
       id="contact"
-      data-screen-label="08 Contact"
+      data-screen-label="07 Contact"
     >
       <div className="section-inner">
         <div className="lander-top reveal">
           <div className="lander-mark">
-            adrianbarn
+            adrian<span style={{ color: "var(--accent)" }}>.</span>barn
             <span style={{ color: "var(--accent)" }}>.</span>es
           </div>
           <div className="lander-nav">
@@ -19,41 +19,41 @@ export default function Contact() {
         </div>
 
         <div className="contact-mid">
-          <div className="contact-kicker reveal">{contact.kicker}</div>
+          <div className="contact-kicker reveal">{CONTACT.kicker}</div>
           <h2
             className="contact-headline reveal d1"
-            dangerouslySetInnerHTML={{ __html: contact.headline }}
+            dangerouslySetInnerHTML={{ __html: CONTACT.headline }}
           />
           <a
             className="contact-email reveal d2"
-            href={`mailto:${contact.email}`}
+            href={`mailto:${CONTACT.email}`}
           >
-            {contact.email}
+            {CONTACT.email}
           </a>
         </div>
 
         <div className="contact-grid reveal d3">
-          <a href={`mailto:${contact.email}`}>
+          <a href={`mailto:${CONTACT.email}`}>
             <span className="label">Email</span>
-            <span className="value">{contact.email}</span>
+            <span className="value">{CONTACT.email}</span>
           </a>
-          <a href={`tel:${contact.phone}`}>
+          <a href={`tel:${CONTACT.phone}`}>
             <span className="label">Phone</span>
-            <span className="value">{contact.phoneDisplay}</span>
+            <span className="value">{CONTACT.phoneDisplay}</span>
           </a>
-          <a href={contact.linkedin} target="_blank" rel="noreferrer">
+          <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">
             <span className="label">LinkedIn</span>
-            <span className="value">{contact.linkedinHandle}</span>
+            <span className="value">{CONTACT.linkedinHandle}</span>
           </a>
           <div>
             <span className="label">Location</span>
-            <span className="value">{contact.location}</span>
+            <span className="value">{CONTACT.location}</span>
           </div>
         </div>
 
         <div className="colophon">
           <span>© {new Date().getFullYear()} Adrian Barnes</span>
-          <span>Built with Next.js, TypeScript, and a lot of opinions</span>
+          <span>{CONTACT.colophon}</span>
         </div>
       </div>
     </section>

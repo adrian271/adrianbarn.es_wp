@@ -1,0 +1,155 @@
+import type { CSSProperties, ReactNode } from "react";
+import type { Bullet, CaseStudy, Metric } from "@/content/portfolio";
+import Mockup from "./Mockups";
+
+type CSSVars = CSSProperties & Record<`--${string}`, string>;
+
+export type NextLink = {
+  href: string;
+  label: string;
+  num: string;
+  year: string;
+};
+
+function Phase({
+  num,
+  name,
+  prose,
+  bullets,
+  children,
+}: {
+  num: string;
+  name: string;
+  prose: string;
+  bullets?: Bullet[];
+  children?: ReactNode;
+}) {
+  return (
+    <div className="cs-phase">
+      <div className="cs-phase-marker">
+        <div className="cs-phase-num">{num}</div>
+        <h3
+          className="cs-phase-name"
+          dangerouslySetInnerHTML={{ __html: name }}
+        />
+      </div>
+      <div className="cs-phase-content">
+        <p className="cs-prose reveal">{prose}</p>
+        {children}
+        {bullets && (
+          <ul className="cs-bullets reveal d1">
+            {bullets.map(([label, text], i) => (
+              <li key={i}>
+                <span className="b-label">{label}</span>
+                <span
+                  className="b-text"
+                  dangerouslySetInnerHTML={{ __html: text }}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function MetricsRow({ metrics }: { metrics: Metric[] }) {
+  return (
+    <div className="cs-metrics reveal d1">
+      {metrics.map((m, i) => (
+        <div className="cs-metric" key={i}>
+          <div className="value">{m.value}</div>
+          <div className="label">{m.label}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default function CaseStudyBody({
+  data,
+  nextLink,
+}: {
+  data: CaseStudy;
+  nextLink: NextLink;
+}) {
+  const style: CSSVars = {
+    "--cs-bg": data.bg,
+    "--cs-ink": data.ink,
+    "--cs-rule": data.rule,
+    "--cs-accent": data.accent,
+  };
+
+  return (
+    <section
+      className="cs-section cs-body"
+      id={data.id + "-body"}
+      data-screen-label={`${data.num} ${data.shortName} · Detail`}
+      data-tone={data.bodyTone}
+      style={style}
+    >
+      <div className="cs-body-inner">
+        <Phase
+          num="01 — The Challenge"
+          name="What the problem looked like."
+          prose={data.problem.prose}
+          bullets={data.problem.bullets}
+        />
+
+        <Phase
+          num="02 — Approach"
+          name="How I attacked it."
+          prose={data.approach.prose}
+          bullets={data.approach.bullets}
+        />
+
+        <Phase
+          num="03 — What I Built"
+          name="The shipped work."
+          prose={data.built.prose}
+          bullets={data.built.bullets}
+        >
+          <figure
+            className={"cs-mockup mockup-frame " + data.mockup}
+            style={{ margin: "16px 0" }}
+          >
+            <Mockup kind={data.mockup} />
+            <figcaption className="cs-mockup-caption">
+              {data.shortName} · representative UI
+            </figcaption>
+          </figure>
+        </Phase>
+
+        <Phase
+          num="04 — Outcome"
+          name="What it shipped into."
+          prose={data.outcome.prose}
+        >
+          <MetricsRow metrics={data.outcome.metrics} />
+        </Phase>
+
+        <div className="cs-stack">
+          <span className="cs-stack-label">Stack & Tools</span>
+          <div className="cs-stack-pills">
+            {data.stack.map((s) => (
+              <span key={s}>{s}</span>
+            ))}
+          </div>
+        </div>
+
+        <div className="cs-next">
+          <a href={nextLink.href} className="cs-next-link">
+            Next →{" "}
+            <em style={{ fontStyle: "italic" }}>{nextLink.label}</em>
+          </a>
+          <div className="cs-next-meta">
+            Case Study {nextLink.num}
+            <br />
+            <span style={{ opacity: 0.7 }}>{nextLink.year}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter_Tight, JetBrains_Mono } from "next/font/google";
+import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { SCROLL_SNAP, SITE } from "@/config/site";
+import { SITE } from "@/config/site";
 
-const serif = Playfair_Display({
+const serif = Fraunces({
   variable: "--font-serif",
   subsets: ["latin"],
   display: "swap",
   style: ["normal", "italic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const sans = Inter_Tight({
@@ -40,7 +40,7 @@ export default function RootLayout({
       lang="en"
       className={`${serif.variable} ${sans.variable} ${mono.variable}`}
     >
-      <body className={SCROLL_SNAP ? "snap" : undefined}>{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
