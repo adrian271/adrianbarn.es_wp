@@ -1,6 +1,3 @@
-"use client";
-
-import { useState } from "react";
 import type { MockupKey } from "@/content/portfolio";
 
 function OracleMockup() {
@@ -108,145 +105,14 @@ function OracleMockup() {
   );
 }
 
-function StairsIcon({ size = 22 }: { size?: number }) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#5b6e8c"
-      strokeWidth={2}
-      width={size}
-      height={size}
-    >
-      <path d="M4 20 L4 16 L8 16 L8 12 L12 12 L12 8 L16 8 L16 4 L20 4" />
-    </svg>
-  );
-}
-
 function TenantMockup() {
-  const [selected, setSelected] = useState("office");
   return (
-    <div className="floorplan">
-      <div className="floorplan-canvas">
-        <div className="floor-zoom">
-          <button>+</button>
-          <button>−</button>
-          <button>⊡</button>
-        </div>
-        <div
-          className="unit"
-          style={{ left: "22%", top: "12%", width: 130, height: 110 }}
-          onClick={() => setSelected("office")}
-        >
-          Office
-          {selected === "office" && (
-            <div className="unit-handles">
-              <i className="bl" />
-              <i className="br" />
-            </div>
-          )}
-        </div>
-        <div
-          className="unit"
-          style={{ left: "50%", top: "30%", width: 80, height: 34 }}
-          onClick={() => setSelected("u2")}
-        >
-          2
-        </div>
-        <div
-          className="unit"
-          style={{ left: "30%", top: "42%", width: 50, height: 30 }}
-          onClick={() => setSelected("u3")}
-        >
-          3
-        </div>
-        <div
-          className="unit"
-          style={{
-            left: "38%",
-            top: "55%",
-            width: 46,
-            height: 46,
-            padding: 6,
-          }}
-          onClick={() => setSelected("stairs")}
-        >
-          <StairsIcon />
-          {selected === "stairs" && (
-            <>
-              <div className="unit-handles">
-                <i className="bl" />
-                <i className="br" />
-              </div>
-              <div className="unit-toolbar">
-                <button title="Rotate left">↺</button>
-                <button title="Rotate right">↻</button>
-                <button title="Delete">🗑</button>
-              </div>
-            </>
-          )}
-        </div>
-        <div
-          className="unit"
-          style={{
-            left: "55%",
-            top: "60%",
-            width: 40,
-            height: 40,
-            padding: 6,
-          }}
-        >
-          <StairsIcon size={20} />
-        </div>
-        <div
-          className="unit"
-          style={{ left: "42%", top: "76%", width: 50, height: 34 }}
-        >
-          A
-        </div>
-      </div>
-      <div className="floor-side">
-        <div className="floor-side-header">
-          <span>☰ &nbsp; 1</span>
-          <span className="reset">Reset Floor</span>
-        </div>
-        <div className="floor-tabs">
-          <span>Spaces</span>
-          <span className="active">Objects</span>
-        </div>
-        <div className="floor-objects">
-          <div
-            className="floor-object"
-            style={{ display: "flex", alignItems: "center", gap: 8 }}
-          >
-            <span
-              style={{
-                display: "inline-block",
-                width: 24,
-                height: 18,
-                border: "1px solid #888",
-              }}
-            />
-            Office
-          </div>
-          <div
-            className="floor-object"
-            style={{ display: "flex", alignItems: "center", gap: 8 }}
-          >
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#444"
-              strokeWidth={2}
-              width={18}
-              height={18}
-            >
-              <path d="M4 20 L4 16 L8 16 L8 12 L12 12 L12 8 L16 8 L16 4 L20 4" />
-            </svg>
-            Stairs
-          </div>
-        </div>
-      </div>
+    <div className="floorplan-embed">
+      <iframe
+        src="https://property-map-editor-testing.netlify.app"
+        title="Property Map editor — live demo"
+        loading="lazy"
+      />
     </div>
   );
 }

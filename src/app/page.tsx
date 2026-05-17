@@ -5,6 +5,7 @@ import CaseStudyHero from "@/components/case-study/Hero";
 import CaseStudyBody from "@/components/case-study/Body";
 import CaseStudyContact from "@/components/case-study/Contact";
 import Reveals from "@/components/case-study/Reveals";
+import SideNav from "@/components/case-study/SideNav";
 
 export default function Home() {
   return (
@@ -33,6 +34,7 @@ export default function Home() {
         );
       })}
       <CaseStudyContact />
+      <SideNav />
       <Reveals />
     </>
   );
