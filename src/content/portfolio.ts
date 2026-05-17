@@ -6,6 +6,7 @@
 
 export type ProjectNode = {
   id: string;
+  icon?: string;
   title: string;
   role: string;
   years: string;
@@ -17,8 +18,8 @@ export type ProjectNode = {
 };
 
 export const lander = {
-  mark: "adrian.barn.es",
-  kicker: "Principal Frontend Engineer · 10+ Years",
+  mark: "adrianbarn.es",
+  kicker: "Principal Software Engineer · 10+ Years",
   name: { first: "Adrian", last: "Barnes" },
   blurb:
     "I build customer-facing products and internal platforms — most recently at <strong>Oracle Cloud Infrastructure</strong>, where I co-led UI delivery for a new first-party product on a pre-release framework. Deep in TypeScript and React; comfortable through Node, GraphQL, and the cloud when the problem calls for it.",
@@ -32,6 +33,7 @@ export const lander = {
 
 export const oracle: ProjectNode = {
   id: "oracle",
+  icon: "/assets/logos/oracle.svg",
   title: "Oracle Cloud Infrastructure",
   role: "Principal MTS · IC-4",
   years: "2022 — 2026",
@@ -43,11 +45,18 @@ export const oracle: ProjectNode = {
     "Internal lead for AI-assisted development — Codex + MCP across Jira, Bitbucket, Confluence",
     "Zero-trust ADW/OAC provisioning with Dropwizard backends and JUnit coverage",
   ],
-  tags: ["TypeScript", "React", "Internal Framework", "Java · Dropwizard", "Codex / MCP"],
+  tags: [
+    "TypeScript",
+    "React",
+    "Internal Framework",
+    "Java · Dropwizard",
+    "Codex / MCP",
+  ],
 };
 
 export const tenant: ProjectNode & { floorplanEmbedUrl: string } = {
   id: "tenant",
+  icon: "/assets/logos/tenant.svg",
   title: "Tenant Inc.",
   role: "Senior Software Engineer",
   years: "2021 — 2022",
@@ -65,6 +74,7 @@ export const tenant: ProjectNode & { floorplanEmbedUrl: string } = {
 
 export const soberlink: ProjectNode = {
   id: "soberlink",
+  icon: "/assets/logos/soberlink.svg",
   title: "Soberlink Healthcare",
   role: "Senior Software Engineer",
   years: "2020 — 2021",
@@ -79,6 +89,7 @@ export const soberlink: ProjectNode = {
 
 export const blast: ProjectNode = {
   id: "blast",
+  icon: "/assets/logos/blast.svg",
   title: "Investable Games · Blast",
   role: "Software Engineer",
   years: "2018 — 2020",
@@ -97,6 +108,7 @@ export const billabong: ProjectNode & {
   brands: Array<{ name: string; role: string; active?: boolean }>;
 } = {
   id: "billabong",
+  icon: "/assets/logos/billabong.svg",
   title: "Billabong Group International",
   role: "Senior Frontend Engineer",
   years: "2016 — 2018",
@@ -116,16 +128,32 @@ export type Fin = { name: string; mat: string; color1: string; accent: string };
 
 export const futures: ProjectNode & { fins: Fin[] } = {
   id: "futures",
+  icon: "/assets/logos/futures.svg",
   title: "Futures Fins",
   role: "Generalist → Web Developer",
   years: "2004 — 2016",
   headline: "Twelve Years. One Surf Co.",
   copy: "Where it started. <strong>Twelve years</strong> at a surf-industry hardgoods manufacturer — generalist engineer growing into the company's web development function as the need emerged. Built and maintained the corporate site, then led development of the Magento/PHP e-commerce storefront.",
   fins: [
-    { name: "MB2", mat: "Honeycomb / Carbon", color1: "#1a1a1a", accent: "#d8e858" },
-    { name: "Jordy (Large)", mat: "Honeycomb", color1: "#1a1a1a", accent: "#5ec85e" },
+    {
+      name: "MB2",
+      mat: "Honeycomb / Carbon",
+      color1: "#1a1a1a",
+      accent: "#d8e858",
+    },
+    {
+      name: "Jordy (Large)",
+      mat: "Honeycomb",
+      color1: "#1a1a1a",
+      accent: "#5ec85e",
+    },
     { name: "F4", mat: "Techflex", color1: "#1a1a1a", accent: "#d8e858" },
-    { name: "John John", mat: "Techflex", color1: "#1a1a1a", accent: "#3a8fd0" },
+    {
+      name: "John John",
+      mat: "Techflex",
+      color1: "#1a1a1a",
+      accent: "#3a8fd0",
+    },
   ],
 };
 

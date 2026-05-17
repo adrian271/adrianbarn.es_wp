@@ -2,11 +2,15 @@ import { contact } from "@/content/portfolio";
 
 export default function Contact() {
   return (
-    <section className="section contact" id="contact" data-screen-label="08 Contact">
+    <section
+      className="section contact"
+      id="contact"
+      data-screen-label="08 Contact"
+    >
       <div className="section-inner">
         <div className="lander-top reveal">
           <div className="lander-mark">
-            adrian<span style={{ color: "var(--accent)" }}>.</span>barn
+            adrianbarn
             <span style={{ color: "var(--accent)" }}>.</span>es
           </div>
           <div className="lander-nav">
@@ -20,7 +24,10 @@ export default function Contact() {
             className="contact-headline reveal d1"
             dangerouslySetInnerHTML={{ __html: contact.headline }}
           />
-          <a className="contact-email reveal d2" href={`mailto:${contact.email}`}>
+          <a
+            className="contact-email reveal d2"
+            href={`mailto:${contact.email}`}
+          >
             {contact.email}
           </a>
         </div>

@@ -1,6 +1,17 @@
 import { oracle } from "@/content/portfolio";
 
-const months = ["Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"];
+const months = [
+  "Nov",
+  "Dec",
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+];
 const lineXs = [20, 60, 100, 140, 180, 220, 260, 300, 340, 380];
 const lineYs = [90, 85, 80, 72, 82, 88, 85, 30, 15, 55];
 const linePoints = lineXs.map((x, i) => `${x},${lineYs[i]}`).join(" ");
@@ -9,11 +20,20 @@ const terminatedWeekly = [28, 55, 18, 62, 22, 20];
 
 export default function Oracle() {
   return (
-    <section className="section oracle" id={oracle.id} data-screen-label="02 Oracle">
+    <section
+      className="section oracle"
+      id={oracle.id}
+      data-screen-label="02 Oracle"
+    >
       <div className="section-inner">
         <div className="section-meta">
+          <span className="role">
+            <img src={oracle.icon} alt={oracle.title} />
+          </span>
           <span className="role">{oracle.title}</span>
-          <span style={{ textAlign: "center", opacity: 0.5 }}>{oracle.role}</span>
+          <span style={{ textAlign: "center", opacity: 0.5 }}>
+            {oracle.role}
+          </span>
           <span>{oracle.years}</span>
         </div>
 
@@ -41,7 +61,9 @@ export default function Oracle() {
 
           <div className="oracle-dashboard reveal d2">
             <div className="oracle-dash-header">
-              <h3 className="oracle-dash-title">Inventory Growth and Changes</h3>
+              <h3 className="oracle-dash-title">
+                Inventory Growth and Changes
+              </h3>
               <p className="oracle-dash-sub">
                 Optimize resources, boost performance, and cut cloud costs
               </p>
@@ -55,7 +77,9 @@ export default function Oracle() {
             </div>
             <div className="oracle-charts">
               <div>
-                <h4 className="oracle-chart-title">Resources Created by Month</h4>
+                <h4 className="oracle-chart-title">
+                  Resources Created by Month
+                </h4>
                 <svg viewBox="0 0 400 120" className="oracle-line-chart">
                   <g stroke="#ececec" strokeWidth={1}>
                     <line x1={0} y1={20} x2={400} y2={20} />
@@ -70,7 +94,13 @@ export default function Oracle() {
                     strokeWidth={2}
                   />
                   {lineXs.map((x, i) => (
-                    <circle key={i} cx={x} cy={lineYs[i]} r={3} fill="#2c5e6e" />
+                    <circle
+                      key={i}
+                      cx={x}
+                      cy={lineYs[i]}
+                      r={3}
+                      fill="#2c5e6e"
+                    />
                   ))}
                   <g fontSize={8} fill="#888" fontFamily="sans-serif">
                     {months.map((m, i) => (
@@ -83,7 +113,9 @@ export default function Oracle() {
               </div>
               <div className="oracle-bar-charts">
                 <div>
-                  <h4 className="oracle-chart-title">Resources Created by Week</h4>
+                  <h4 className="oracle-chart-title">
+                    Resources Created by Week
+                  </h4>
                   <svg viewBox="0 0 200 90">
                     {createdWeekly.map((h, i) => (
                       <rect
@@ -98,7 +130,9 @@ export default function Oracle() {
                   </svg>
                 </div>
                 <div>
-                  <h4 className="oracle-chart-title">Resources Terminated by Week</h4>
+                  <h4 className="oracle-chart-title">
+                    Resources Terminated by Week
+                  </h4>
                   <svg viewBox="0 0 200 90">
                     {terminatedWeekly.map((h, i) => (
                       <rect
