@@ -472,7 +472,8 @@ a {
   background-image: url("/Adrian_Barnes_headphones_microphone_stream_desk_compressed.png");
   background-size: cover;
   background-position: center 22%;
-  filter: brightness(0.32) contrast(0.9) saturate(0.5);
+  filter: grayscale() contrast(0.95) brightness(0.75);
+  opacity: 0.35;
   z-index: 0;
 }
 .cs-lander-vignette {
@@ -593,7 +594,7 @@ a {
   opacity: 0.95;
   margin: 0;
   text-wrap: pretty;
-  max-width: 44ch;
+  max-width: 40ch;
 }
 .cs-lander-blurb strong {
   font-weight: 600;

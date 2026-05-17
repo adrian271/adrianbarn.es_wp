@@ -70,9 +70,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     duration: "4 years",
     team: "4 engineers",
     location: "Remote · Austin TX HQ",
+    titleHtml: "Principal-level solutions at an Enterprise Giant.",
     summary:
-      "Co-led UI delivery for Resource Analytics — a first-party OCI product launched on a pre-release framework.",
-    titleHtml: "Shipped <em>1.0</em> on a framework that wasn't.",
+      "Greenfield Product, AI Automation, Acceleration and Tiger Team Solutions.",
     bg: "#fafafa",
     ink: "#1a1f1c",
     rule: "#e3e3e3",
@@ -185,9 +185,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     duration: "1 year",
     team: "Small product team",
     location: "Remote · Irvine CA",
+    titleHtml:
+      "Lead Engineer, Project Owner, offshore liason, standards-setter.",
     summary:
       "Solo-built an interactive multi-floor Property Map for self-storage operators — without a single map library.",
-    titleHtml: "A floorplan editor, built without <em>a map library</em>.",
     bg: "#fdfdfd",
     ink: "#1a2e35",
     rule: "#e3e3e3",
@@ -367,7 +368,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
     },
 
-    stack: ["Vue 3", "TypeScript", "PostCSS", "Storybook", "Vite", ".NET (API)"],
+    stack: [
+      "Vue 3",
+      "TypeScript",
+      "PostCSS",
+      "Storybook",
+      "Vite",
+      ".NET (API)",
+    ],
   },
 
   {
@@ -417,7 +425,10 @@ export const CASE_STUDIES: CaseStudy[] = [
           "Marketing",
           "Craft CMS + GraphQL — content team self-serve, Optimizely A/B baked in",
         ],
-        ["Product", "Gatsby for Learn & Earn — sponsored-content savings surface"],
+        [
+          "Product",
+          "Gatsby for Learn & Earn — sponsored-content savings surface",
+        ],
         [
           "Reuse",
           "Same foundation powered white-label sign-up funnels (incl. Junior Achievement)",
@@ -433,10 +444,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       prose:
         "I architected and shipped Learn & Earn — Blast's first product surface beyond the core app — plus reusable white-label funnels and the marketing site that supported the company through its seed round. Along the way I mentored a junior engineer through the full project lifecycle.",
       bullets: [
-        [
-          "Marketing site",
-          "Craft CMS + GraphQL, content-editable, A/B tested",
-        ],
+        ["Marketing site", "Craft CMS + GraphQL, content-editable, A/B tested"],
         [
           "Learn & Earn",
           "Gatsby-based sponsored savings surface — architecture and lead engineering",
