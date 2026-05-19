@@ -10,7 +10,7 @@ export default function CaseStudyContact() {
       <div className="section-inner">
         <div className="lander-top reveal">
           <div className="lander-mark">
-            adrian<span style={{ color: "var(--accent)" }}>.</span>barn
+            adrianbarn
             <span style={{ color: "var(--accent)" }}>.</span>es
           </div>
           <div className="lander-nav">

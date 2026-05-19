@@ -209,8 +209,8 @@ export default function HeroVisual({ kind }: { kind: HeroVisualKind }) {
             }}
           >
             {Array.from({ length: 30 }, (_, i) => {
-              const x = 100 + (i * 37) % 1000;
-              const y = 100 + (i * 73) % 600;
+              const x = 100 + ((i * 37) % 1000);
+              const y = 100 + ((i * 73) % 600);
               return (
                 <g key={i}>
                   <circle cx={x} cy={y} r={4} fill="white" />
@@ -218,8 +218,8 @@ export default function HeroVisual({ kind }: { kind: HeroVisualKind }) {
                     <line
                       x1={x}
                       y1={y}
-                      x2={100 + ((i - 1) * 37) % 1000}
-                      y2={100 + ((i - 1) * 73) % 600}
+                      x2={100 + (((i - 1) * 37) % 1000)}
+                      y2={100 + (((i - 1) * 73) % 600)}
                       stroke="white"
                       strokeWidth={0.5}
                       opacity={0.4}
@@ -334,18 +334,9 @@ export default function HeroVisual({ kind }: { kind: HeroVisualKind }) {
               fill="rgba(255,255,255,0.8)"
               rx={4}
             />
-            <polygon
-              points="350,540 420,340 380,540"
-              fill="rgba(0,0,0,0.65)"
-            />
-            <polygon
-              points="600,540 670,300 630,540"
-              fill="rgba(0,0,0,0.65)"
-            />
-            <polygon
-              points="850,540 920,360 880,540"
-              fill="rgba(0,0,0,0.65)"
-            />
+            <polygon points="350,540 420,340 380,540" fill="rgba(0,0,0,0.65)" />
+            <polygon points="600,540 670,300 630,540" fill="rgba(0,0,0,0.65)" />
+            <polygon points="850,540 920,360 880,540" fill="rgba(0,0,0,0.65)" />
             <ellipse
               cx={600}
               cy={608}

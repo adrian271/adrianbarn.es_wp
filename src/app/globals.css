@@ -1554,75 +1554,242 @@ a {
   margin-top: 32px;
 }
 
-/* ============ SIDE NAV ============ */
-.side-nav {
+/* ============ PROGRESS SPINE (side nav) ============
+   Port of NavConceptB from the Claude design hand-off. Text strip on the
+   left (number + name); circular brand-color node on the right. A 1px
+   spine line at the same x as the node centers, filling top-to-bottom
+   with a `--spine-fill-from` → `--spine-fill-to` gradient driven by
+   smooth scroll progress.
+*/
+.spine {
+  --spine-node-default: 36px;
+  --spine-node-active: 48px;
+  --spine-line-inset: 18px; /* distance of the spine line from nav's right edge */
+  --spine-fg: rgba(255, 255, 255, 0.75);
+  --spine-fg-active: #fff;
+  --spine-track-color: rgba(255, 255, 255, 0.1);
+  --spine-node-bg: #15151a;
+  --spine-node-border: rgba(255, 255, 255, 0.2);
+
   position: fixed;
   right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 80px;
+  bottom: 80px;
   z-index: 50;
+  width: 180px;
+  pointer-events: none;
+}
+
+/* Spine track — vertical 1px line at `right: var(--spine-line-inset)` */
+.spine-track,
+.spine-fill {
+  position: absolute;
+  right: var(--spine-line-inset);
+  width: 1px;
+  pointer-events: none;
+}
+.spine-track {
+  top: 6px;
+  bottom: 6px;
+  background: var(--spine-track-color);
+}
+.spine-fill {
+  top: 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--spine-fill-from, #0085ff),
+    var(--spine-fill-to, #0085ff)
+  );
+  transition:
+    height 0.08s linear,
+    background 0.35s ease;
+}
+
+/* Stack of items — flex column, evenly distributed */
+.spine-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 8px;
 }
-.side-nav a {
-  width: 36px;
-  height: 18px;
-  position: relative;
+.spine-item {
+  pointer-events: auto;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+/* Each row: text on the left, node on the right */
+.spine-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  color: var(--spine-fg);
   cursor: pointer;
+  text-align: right;
 }
-.side-nav a::before {
-  content: "";
-  width: 12px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.4);
-  transition:
-    width 0.25s,
-    background 0.25s;
+.spine-link:hover {
+  color: var(--spine-fg-active);
 }
-.side-nav a:hover::before,
-.side-nav a.active::before {
-  width: 32px;
-  background: var(--accent);
+
+/* Text strip (number on top, short name below, right-aligned) */
+.spine-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+  margin-right: 12px;
 }
-.side-nav a span {
-  position: absolute;
-  right: 40px;
-  top: 50%;
-  transform: translateY(-50%);
+.spine-item.active .spine-text,
+.spine-link:hover .spine-text {
+  opacity: 1;
+}
+.spine-num {
   font-family: var(--mono);
   font-size: 9px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--paper);
-  opacity: 0;
-  transition: opacity 0.25s;
-  white-space: nowrap;
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.55);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.2s;
 }
-.side-nav a:hover span {
+.spine-item.active .spine-num {
+  color: var(--spine-accent);
+}
+.spine-short {
+  font-family: var(--sans-serif);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #fff;
+  opacity: 0;
+  text-shadow:
+    0 0 2px #000,
+    0 0 2px #000;
+  transition:
+    color 0.2s,
+    font-style 0.2s,
+    opacity 0.2s;
+}
+/* Reveal all labels whenever any spine node is being hovered. */
+.spine:has(.spine-node:hover) .spine-short {
   opacity: 1;
 }
-.side-nav.on-light a::before {
-  background: rgba(0, 0, 0, 0.4);
-}
-.side-nav.on-light a:hover::before,
-.side-nav.on-light a.active::before {
-  background: var(--accent);
-}
-.side-nav.on-light a span {
-  color: #fff;
+.spine-item.active .spine-short {
+  color: var(--spine-accent);
+  /* font-style: italic; */
 }
 
+/* Node — circular marker holding the brand logo (or bookend glyph) */
+.spine-node {
+  width: var(--spine-node-default);
+  height: var(--spine-node-default);
+  border-radius: 50%;
+  background: var(--spine-node-bg);
+  border: 2px solid var(--spine-node-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--spine-accent);
+  z-index: 2;
+  position: relative;
+  transition:
+    width 0.25s,
+    height 0.25s,
+    border-color 0.25s,
+    transform 0.25s,
+    box-shadow 0.25s;
+}
+.spine-link:hover .spine-node {
+  border-color: var(--spine-accent);
+}
+.spine-item.active .spine-node {
+  width: var(--spine-node-active);
+  height: var(--spine-node-active);
+  border-color: var(--spine-accent);
+  /* outer glow: accent color at ~20% alpha */
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--spine-accent) 22%, transparent);
+  transform: translateX(6px);
+}
+
+/* Light-bg tone swap */
+.spine.on-light {
+  --spine-track-color: rgba(0, 0, 0, 0.12);
+  --spine-fg: rgba(0, 0, 0, 0.7);
+  --spine-fg-active: #fff;
+  --spine-node-bg: #fff;
+  --spine-node-border: rgba(0, 0, 0, 0.15);
+}
+.spine.on-light .spine-short {
+  color: #1a1a1a;
+}
+.spine.on-light .spine-num {
+  color: rgba(0, 0, 0, 0.55);
+}
+
+/* ============ PROGRESS SPINE — MOBILE (dot strip) ============ */
 @media (max-width: 720px) {
-  .side-nav {
+  .spine {
+    top: auto;
+    bottom: 16px;
+    right: 12px;
+    width: 24px;
+    height: auto;
+    padding: 8px 0;
+  }
+  .spine-track,
+  .spine-fill {
     display: none;
+  }
+  .spine-items {
+    position: static;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .spine-item {
+    flex: 0;
+  }
+  .spine-link {
+    justify-content: center;
+    gap: 0;
+  }
+  .spine-text {
+    display: none;
+  }
+  .spine-node {
+    width: 8px;
+    height: 8px;
+    border: none;
+    background: rgba(255, 255, 255, 0.35);
+    color: transparent;
+    box-shadow: none;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+  }
+  .spine-node > * {
+    display: none;
+  }
+  .spine-link:hover .spine-node,
+  .spine-item.active .spine-node {
+    width: 8px;
+    height: 8px;
+    background: var(--spine-accent);
+    box-shadow: none;
+    transform: scale(1.5);
+  }
+  .spine.on-light .spine-node {
+    background: rgba(0, 0, 0, 0.35);
   }
 }
 

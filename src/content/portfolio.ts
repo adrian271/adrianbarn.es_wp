@@ -500,6 +500,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: "image",
         src: "/portfolio-assets/soberlink/soberlink-component-library-reimagined.png",
         caption: "Compliance alert + monitoring device",
+        href: "/portfolio-assets/soberlink/soberlink-component-library.html",
       },
       // {
       //   type: "iframe",
@@ -687,7 +688,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     bg: "#f5f0e6",
     ink: "#1a1a1a",
     rule: "#d8d0bc",
-    accent: "#1a1a1a",
+    accent: "#fff",
     heroBg: "#1e3a4a",
     heroTone: "dark",
     heroVisual: "billabong",
