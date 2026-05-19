@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Soberlink Design Library — Component Showcase</title>
+    <title>Soberlink Design Library Reimagined — Component Showcase</title>
 
     <!-- Pulls in the actual production CSS from id.soberlink.com -->
     <link rel="stylesheet" href="https://id.soberlink.com/css/main.min.css" />
@@ -439,7 +439,7 @@
           <div class="docs-brand-mark">SL</div>
           <div class="docs-brand-text">
             Soberlink
-            <small>Design Library</small>
+            <small style="font-size: 8px">Design Library Reimagined</small>
           </div>
         </div>
 
@@ -1138,7 +1138,9 @@
     </div>
 
     <!-- ========== MODAL (rendered at body level so it overlays everything) ========== -->
-    <div class="component-modal" id="modal" data-visible="hidden">
+    <!-- id is `signout-modal` (not `modal`) to avoid collision with the docs
+         section above that anchors the sidebar's #modal nav link. -->
+    <div class="component-modal" id="signout-modal" data-visible="hidden">
       <div class="modal-card">
         <div class="close-button" id="close-modal">
           <div></div>
@@ -1156,7 +1158,7 @@
             onclick="
               event.preventDefault();
               document
-                .getElementById('modal')
+                .getElementById('signout-modal')
                 .setAttribute('data-visible', 'hidden');
               document.body.classList.remove('modal-open');
             "
@@ -1168,7 +1170,7 @@
             onclick="
               event.preventDefault();
               document
-                .getElementById('modal')
+                .getElementById('signout-modal')
                 .setAttribute('data-visible', 'hidden');
               document.body.classList.remove('modal-open');
             "
@@ -1340,7 +1342,7 @@
       /* ============================================================
      Modal
      ============================================================ */
-      const modal = document.getElementById("modal");
+      const modal = document.getElementById("signout-modal");
       document.getElementById("open-modal").addEventListener("click", () => {
         modal.setAttribute("data-visible", "visible");
         document.body.classList.add("modal-open");

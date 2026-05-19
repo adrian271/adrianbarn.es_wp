@@ -490,26 +490,30 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     gallery: [
       {
-        type: "mockup",
-        component: "soberlink",
-        background: "#fff",
+        type: "image",
+        src: "/portfolio-assets/soberlink/soberlink-component-library-reimagined.png",
         caption: "Compliance alert + monitoring device",
       },
-      {
-        type: "placeholder",
-        label: "Signup Flow",
-        caption: "Account creation with verification and invitations",
-      },
-      {
-        type: "placeholder",
-        label: "MFA Enrollment",
-        caption: "TOTP / SMS enrollment with focus management",
-      },
-      {
-        type: "placeholder",
-        label: "Press Coverage Embed",
-        caption: "Forbes / BBC / Psychology Today — iframe or screenshot",
-      },
+      // {
+      //   type: "iframe",
+      //   src: "/portfolio-assets/soberlink/soberlink-component-library.html",
+      //   caption: "Compliance alert + monitoring device",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Signup Flow",
+      //   caption: "Account creation with verification and invitations",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "MFA Enrollment",
+      //   caption: "TOTP / SMS enrollment with focus management",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Press Coverage Embed",
+      //   caption: "Forbes / BBC / Psychology Today — iframe or screenshot",
+      // },
     ],
   },
 
@@ -619,32 +623,42 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     gallery: [
       {
-        type: "mockup",
-        component: "blast",
-        background: "#0a0418",
-        caption: "Mobile app — savings balance + game card",
+        type: "video",
+        src: "/portfolio-assets/blast/blastv3_720.mp4",
+        caption: "Blast Website 2019",
       },
       {
-        type: "placeholder",
-        label: "Marketing Site Hero",
-        caption: "Craft CMS-powered, A/B tested via Optimizely",
+        type: "video",
+        src: "/portfolio-assets/blast/blastv2_720.mp4",
+        caption: "Blast Website 2018",
       },
-      {
-        type: "placeholder",
-        label: "Learn & Earn Flow",
-        caption: "Sponsored-content savings surface — built on Gatsby",
-      },
-      {
-        type: "placeholder",
-        label: "Junior Achievement Funnel",
-        caption:
-          "First white-label deployment of the reusable signup framework",
-      },
-      {
-        type: "placeholder",
-        label: "App Walkthrough Video",
-        caption: "Drop in mp4 src or YouTube id",
-      },
+      // {
+      //   type: "mockup",
+      //   component: "blast",
+      //   background: "#0a0418",
+      //   caption: "Mobile app — savings balance + game card",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Marketing Site Hero",
+      //   caption: "Craft CMS-powered, A/B tested via Optimizely",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Learn & Earn Flow",
+      //   caption: "Sponsored-content savings surface — built on Gatsby",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Junior Achievement Funnel",
+      //   caption:
+      //     "First white-label deployment of the reusable signup framework",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "App Walkthrough Video",
+      //   caption: "Drop in mp4 src or YouTube id",
+      // },
     ],
   },
 
