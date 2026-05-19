@@ -1,6 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Bullet, CaseStudy, Metric } from "@/content/portfolio";
-import Mockup from "./Mockups";
+import MediaCarousel from "./MediaCarousel";
 
 type CSSVars = CSSProperties & Record<`--${string}`, string>;
 
@@ -90,6 +90,12 @@ export default function CaseStudyBody({
       style={style}
     >
       <div className="cs-body-inner">
+        {data.gallery && data.gallery.length > 0 && (
+          <div className="cs-gallery-top">
+            <MediaCarousel items={data.gallery} accent={data.accent} />
+          </div>
+        )}
+
         <Phase
           num="01 — The Challenge"
           name="What the problem looked like."
@@ -109,17 +115,7 @@ export default function CaseStudyBody({
           name="The shipped work."
           prose={data.built.prose}
           bullets={data.built.bullets}
-        >
-          <figure
-            className={"cs-mockup mockup-frame " + data.mockup}
-            style={{ margin: "16px 0" }}
-          >
-            <Mockup kind={data.mockup} />
-            <figcaption className="cs-mockup-caption">
-              {data.shortName} · representative UI
-            </figcaption>
-          </figure>
-        </Phase>
+        />
 
         <Phase
           num="04 — Outcome"

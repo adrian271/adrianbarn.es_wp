@@ -27,6 +27,33 @@ export type MockupKey =
 
 export type HeroVisualKind = MockupKey;
 
+/**
+ * Slide types for the per-project media carousel. `placeholder` slots are
+ * stand-ins for real screenshots/video/iframe content that will be filled in
+ * later.
+ */
+export type MediaItem =
+  | { type: "image"; src: string; alt?: string; caption?: string }
+  | { type: "youtube"; id: string; caption?: string }
+  | { type: "vimeo"; id: string; caption?: string }
+  | {
+      type: "video";
+      src: string;
+      poster?: string;
+      caption?: string;
+      autoplay?: boolean;
+      loop?: boolean;
+    }
+  | { type: "iframe"; src: string; allow?: string; caption?: string }
+  | { type: "embed"; html: string; caption?: string }
+  | {
+      type: "mockup";
+      component: MockupKey;
+      background?: string;
+      caption?: string;
+    }
+  | { type: "placeholder"; label: string; caption?: string };
+
 export type CaseStudy = {
   id: string;
   num: string;
@@ -57,6 +84,10 @@ export type CaseStudy = {
   outcome: Phase & { metrics: Metric[] };
 
   stack: string[];
+
+  /** Top-of-body media carousel. Mix of brand mockups + placeholders today;
+   *  real screenshots / video / iframes get dropped in later. */
+  gallery?: MediaItem[];
 };
 
 export const CASE_STUDIES: CaseStudy[] = [
@@ -173,6 +204,75 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Jira API",
       "Bitbucket API",
     ],
+    gallery: [
+      {
+        type: "video",
+        src: "/portfolio-assets/oracle/oracle-cloudworld-2023-clay-magouryk.mp4",
+        caption:
+          "Adrian Barnes' GenAI demo featured in Clay Magouyrk's CloudWorld 2023 keynote",
+      },
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-instance-details.png",
+        caption: "Resource Analytics - Instance details",
+      },
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-regions.png",
+        caption: "Resource Analytics - Regions",
+      },
+
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-sql-developer.png",
+        caption: "Resource Analytics - ADW SQL Developer",
+      },
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-connections-graph.png",
+        caption: "Resource Analytics - Connections Graph",
+      },
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-graph-studio.png",
+        caption: "Resource Analytics - Graph Studio",
+      },
+      {
+        type: "image",
+        src: "/portfolio-assets/oracle/oracle-resource-analytics-discovery-dashboard.png",
+        caption: "Resource Analytics - Discovery Dashboard",
+      },
+      // {
+      //   type: "mockup",
+      //   component: "oracle",
+      //   background: "#fff",
+      //   caption: "Inventory Growth dashboard — primary surface",
+      // },
+
+      // {
+      //   type: "placeholder",
+      //   label: "Resource Drilldown",
+      //   caption:
+      //     "Multi-pane navigation between compartments, regions, and lifecycle states",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Schematic Generator",
+      //   caption:
+      //     "Network topology output — replaces a weeks-long manual process",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "CloudWorld GenAI Demo",
+      //   caption: "Drop in YouTube id when uploaded",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Codex + MCP Workflow",
+      //   caption:
+      //     "AI-assisted development integration across Jira, Bitbucket, Confluence",
+      // },
+    ],
   },
 
   {
@@ -278,6 +378,18 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Python",
       "TypeScript",
     ],
+    gallery: [
+      {
+        type: "iframe",
+        src: "https://property-map-editor-testing.netlify.app",
+        caption: "Property Map — live demo of the operator editor",
+      },
+      {
+        type: "video",
+        src: "portfolio-assets/tenant/tenant-inc-hummingbird-property-map.mp4",
+        caption: "Property Map — live demo of the operator editor",
+      },
+    ],
   },
 
   {
@@ -375,6 +487,29 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Storybook",
       "Vite",
       ".NET (API)",
+    ],
+    gallery: [
+      {
+        type: "mockup",
+        component: "soberlink",
+        background: "#fff",
+        caption: "Compliance alert + monitoring device",
+      },
+      {
+        type: "placeholder",
+        label: "Signup Flow",
+        caption: "Account creation with verification and invitations",
+      },
+      {
+        type: "placeholder",
+        label: "MFA Enrollment",
+        caption: "TOTP / SMS enrollment with focus management",
+      },
+      {
+        type: "placeholder",
+        label: "Press Coverage Embed",
+        caption: "Forbes / BBC / Psychology Today — iframe or screenshot",
+      },
     ],
   },
 
@@ -482,6 +617,35 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Ruby on Rails",
       "PostgreSQL",
     ],
+    gallery: [
+      {
+        type: "mockup",
+        component: "blast",
+        background: "#0a0418",
+        caption: "Mobile app — savings balance + game card",
+      },
+      {
+        type: "placeholder",
+        label: "Marketing Site Hero",
+        caption: "Craft CMS-powered, A/B tested via Optimizely",
+      },
+      {
+        type: "placeholder",
+        label: "Learn & Earn Flow",
+        caption: "Sponsored-content savings surface — built on Gatsby",
+      },
+      {
+        type: "placeholder",
+        label: "Junior Achievement Funnel",
+        caption:
+          "First white-label deployment of the reusable signup framework",
+      },
+      {
+        type: "placeholder",
+        label: "App Walkthrough Video",
+        caption: "Drop in mp4 src or YouTube id",
+      },
+    ],
   },
 
   {
@@ -574,6 +738,33 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Google Tag Manager",
       "Structured Data / SEO",
     ],
+    gallery: [
+      {
+        type: "mockup",
+        component: "billabong",
+        caption: "RVCA — brand template overrides on the shared platform",
+      },
+      {
+        type: "placeholder",
+        label: "Billabong Homepage",
+        caption: "Pre/post rebuild comparison",
+      },
+      {
+        type: "placeholder",
+        label: "Element Sub-brand",
+        caption: "UI updates within the shared platform",
+      },
+      {
+        type: "placeholder",
+        label: "Von Zipper Sub-brand",
+        caption: "Coordinated rollouts across the portfolio",
+      },
+      {
+        type: "placeholder",
+        label: "WCAG Audit Demo",
+        caption: "Before/after accessibility scoring",
+      },
+    ],
   },
 
   {
@@ -649,6 +840,28 @@ export const CASE_STUDIES: CaseStudy[] = [
       "JavaScript (pre-modern)",
       "HTML/CSS",
       "Linux",
+    ],
+    gallery: [
+      {
+        type: "mockup",
+        component: "futures",
+        caption: "Magento storefront — fin catalog with product detail",
+      },
+      {
+        type: "placeholder",
+        label: "Wayback Machine Capture",
+        caption: "Snapshot of the corporate site circa 2010 — iframe target",
+      },
+      {
+        type: "placeholder",
+        label: "Team Rider Campaign",
+        caption: "Seasonal collection drop microsite",
+      },
+      {
+        type: "placeholder",
+        label: "Fin Configurator",
+        caption: "Pre-modern interactive product picker",
+      },
     ],
   },
 ];

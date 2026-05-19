@@ -1,0 +1,1379 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soberlink Design Library — Component Showcase</title>
+
+    <!-- Pulls in the actual production CSS from id.soberlink.com -->
+    <link rel="stylesheet" href="https://id.soberlink.com/css/main.min.css" />
+
+    <style>
+      /* ============================================================
+     SHOWCASE SHELL
+     A documentation/portfolio frame around the production CSS.
+     Uses the same design tokens defined in main.min.css.
+     ============================================================ */
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg-1);
+        color: var(--text-1);
+        font-family: var(--font-sans);
+      }
+
+      body {
+        margin-bottom: 0; /* override main.min.css 60px footer offset */
+      }
+
+      /* Layout shell */
+      .docs-shell {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        min-height: 100vh;
+      }
+
+      /* Sidebar */
+      .docs-sidebar {
+        background: var(--surface-color);
+        border-right: 1px solid var(--surface-border);
+        padding: 32px 24px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+        overflow-y: auto;
+      }
+      .docs-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 32px;
+      }
+      .docs-brand-mark {
+        width: 32px;
+        height: 32px;
+        border-radius: 6px;
+        background: linear-gradient(135deg, var(--blue-50), var(--blue-30));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+      }
+      .docs-brand-text {
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--text-1);
+        letter-spacing: 0.2px;
+      }
+      .docs-brand-text small {
+        display: block;
+        font-weight: 400;
+        font-size: 11px;
+        color: var(--gray-50);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 2px;
+      }
+
+      .docs-nav-section {
+        margin-bottom: 24px;
+      }
+      .docs-nav-title {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gray-50);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 8px 8px;
+      }
+      .docs-nav a.docs-nav-link {
+        display: block;
+        padding: 8px 12px;
+        font-size: 14px;
+        color: var(--text-2);
+        text-decoration: none;
+        border-radius: 4px;
+        text-align: left;
+        text-transform: none;
+        font-weight: 500;
+        transition:
+          background 0.15s ease,
+          color 0.15s ease;
+      }
+      .docs-nav a.docs-nav-link:hover {
+        background: var(--blue-0);
+        color: var(--blue-50);
+        box-shadow: none;
+      }
+      .docs-nav a.docs-nav-link.active {
+        background: var(--blue-0);
+        color: var(--blue-50);
+        font-weight: 600;
+      }
+
+      /* Main content area */
+      .docs-main {
+        padding: 48px 56px 96px;
+        max-width: 1100px;
+      }
+
+      .docs-hero {
+        margin-bottom: 56px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid var(--surface-border);
+      }
+      .docs-eyebrow {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--blue-50);
+        background: var(--blue-0);
+        padding: 4px 10px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+      }
+      .docs-hero h1 {
+        font-size: 44px;
+        line-height: 1.1;
+        margin: 0 0 16px;
+        letter-spacing: -0.8px;
+      }
+      .docs-hero p.lead {
+        font-size: 18px;
+        line-height: 1.55;
+        color: var(--text-2);
+        max-width: 640px;
+        margin: 0;
+      }
+
+      .docs-meta-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        margin-top: 32px;
+      }
+      .docs-meta-card {
+        background: var(--surface-color);
+        border: 1px solid var(--surface-border);
+        border-radius: 6px;
+        padding: 16px;
+      }
+      .docs-meta-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gray-50);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .docs-meta-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--text-1);
+        line-height: 1;
+      }
+      .docs-meta-value small {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--gray-50);
+        margin-left: 2px;
+      }
+
+      /* Section blocks */
+      .docs-section {
+        margin-bottom: 64px;
+        scroll-margin-top: 24px;
+      }
+      .docs-section-header {
+        margin-bottom: 24px;
+      }
+      .docs-section-header h2 {
+        font-size: 28px;
+        margin: 0 0 6px;
+        letter-spacing: -0.4px;
+      }
+      .docs-section-header p {
+        margin: 0;
+        color: var(--text-2);
+        font-size: 15px;
+        max-width: 720px;
+        line-height: 1.5;
+      }
+
+      /* Demo cards (where components live) */
+      .demo-card {
+        background: var(--surface-color);
+        border: 1px solid var(--surface-border);
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+      .demo-card-header {
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--surface-border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg-1);
+      }
+      .demo-card-title {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text-1);
+        letter-spacing: 0.2px;
+      }
+      .demo-card-tabs {
+        display: flex;
+        gap: 4px;
+      }
+      .demo-tab {
+        background: transparent;
+        border: 1px solid transparent;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--gray-50);
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-family: var(--font-sans);
+      }
+      .demo-tab.active {
+        background: var(--surface-color);
+        border-color: var(--surface-border);
+        color: var(--text-1);
+      }
+      .demo-tab:hover:not(.active) {
+        color: var(--text-1);
+      }
+      .demo-card-preview {
+        padding: 32px 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-start;
+        background:
+          linear-gradient(var(--surface-color), var(--surface-color)),
+          repeating-linear-gradient(
+            45deg,
+            var(--gray-5) 0 1px,
+            transparent 1px 8px
+          );
+        background-blend-mode: normal;
+      }
+      .demo-card-preview.stack {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 420px;
+      }
+      .demo-card-preview.center {
+        justify-content: center;
+      }
+      .demo-card-code {
+        display: none;
+        background: var(--gray-100);
+        color: var(--gray-5);
+        padding: 16px 20px;
+        font-family:
+          SFMono-Regular, Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        font-size: 12px;
+        line-height: 1.6;
+        overflow-x: auto;
+        white-space: pre;
+      }
+      .demo-card.show-code .demo-card-preview {
+        display: none;
+      }
+      .demo-card.show-code .demo-card-code {
+        display: block;
+      }
+
+      /* Color palette */
+      .palette-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+      }
+      .palette-row {
+        display: grid;
+        grid-template-columns: repeat(11, 1fr);
+        gap: 4px;
+        margin-bottom: 12px;
+      }
+      .palette-row-label {
+        grid-column: 1 / -1;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-1);
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        margin-bottom: 6px;
+      }
+      .swatch {
+        aspect-ratio: 1;
+        border-radius: 4px;
+        border: 1px solid var(--surface-border);
+        position: relative;
+        cursor: pointer;
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+      }
+      .swatch:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(28, 34, 36, 0.12);
+      }
+      .swatch-tooltip {
+        position: absolute;
+        bottom: -36px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--gray-100);
+        color: var(--white);
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 6px;
+        border-radius: 3px;
+        white-space: nowrap;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.15s;
+        z-index: 5;
+        font-family: SFMono-Regular, Consolas, monospace;
+      }
+      .swatch:hover .swatch-tooltip {
+        opacity: 1;
+      }
+
+      /* Type scale */
+      .type-row {
+        display: grid;
+        grid-template-columns: 100px 1fr auto;
+        gap: 16px;
+        align-items: baseline;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--surface-border);
+      }
+      .type-row:last-child {
+        border-bottom: none;
+      }
+      .type-row-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--gray-50);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .type-row-meta {
+        font-size: 11px;
+        font-family: SFMono-Regular, Consolas, monospace;
+        color: var(--gray-50);
+      }
+
+      /* Footer */
+      .docs-footer-note {
+        margin-top: 80px;
+        padding: 24px;
+        background: var(--blue-0);
+        border: 1px solid var(--blue-10);
+        border-radius: 6px;
+        color: var(--blue-70);
+        font-size: 14px;
+        line-height: 1.6;
+      }
+      .docs-footer-note strong {
+        color: var(--blue-50);
+      }
+
+      /* Override main.min.css's footer ul margin so it doesn't push content */
+      footer .container ul {
+        margin-top: 0 !important;
+      }
+
+      /* Mobile */
+      @media (max-width: 900px) {
+        .docs-shell {
+          grid-template-columns: 1fr;
+        }
+        .docs-sidebar {
+          position: static;
+          height: auto;
+          border-right: none;
+          border-bottom: 1px solid var(--surface-border);
+        }
+        .docs-main {
+          padding: 32px 20px 60px;
+        }
+        .docs-hero h1 {
+          font-size: 32px;
+        }
+        .docs-meta-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .palette-row {
+          grid-template-columns: repeat(11, 1fr);
+          gap: 2px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="docs-shell">
+      <!-- ============================== SIDEBAR ============================== -->
+      <aside class="docs-sidebar">
+        <div class="docs-brand">
+          <div class="docs-brand-mark">SL</div>
+          <div class="docs-brand-text">
+            Soberlink
+            <small>Design Library</small>
+          </div>
+        </div>
+
+        <div class="docs-nav-section">
+          <p class="docs-nav-title">Foundations</p>
+          <nav class="docs-nav">
+            <a class="docs-nav-link" href="#colors">Color Tokens</a>
+            <a class="docs-nav-link" href="#typography">Typography</a>
+          </nav>
+        </div>
+
+        <div class="docs-nav-section">
+          <p class="docs-nav-title">Components</p>
+          <nav class="docs-nav">
+            <a class="docs-nav-link" href="#buttons">Buttons</a>
+            <a class="docs-nav-link" href="#inputs">Text Inputs</a>
+            <a class="docs-nav-link" href="#password">Password Field</a>
+            <a class="docs-nav-link" href="#select">Select</a>
+            <a class="docs-nav-link" href="#checkbox">Checkbox</a>
+            <a class="docs-nav-link" href="#toggle">Toggle Switch</a>
+            <a class="docs-nav-link" href="#alerts">Alerts</a>
+            <a class="docs-nav-link" href="#verification">Verification Code</a>
+            <a class="docs-nav-link" href="#modal">Modal</a>
+            <a class="docs-nav-link" href="#tooltip">Tooltip</a>
+            <a class="docs-nav-link" href="#menu">Settings Menu</a>
+          </nav>
+        </div>
+      </aside>
+
+      <!-- ============================== MAIN ============================== -->
+      <main class="docs-main">
+        <!-- HERO -->
+        <header class="docs-hero">
+          <span class="docs-eyebrow">Case Study · Soberlink Identity</span>
+          <h1>
+            A unified component library for identity &amp; account experiences.
+          </h1>
+          <p class="lead">
+            A token-driven design system powering authentication, account
+            management, and verification flows across Soberlink's identity
+            platform — built with accessibility, theming, and developer
+            ergonomics as first-class concerns.
+          </p>
+          <div class="docs-meta-grid">
+            <div class="docs-meta-card">
+              <div class="docs-meta-label">Components</div>
+              <div class="docs-meta-value">11<small> shipped</small></div>
+            </div>
+            <div class="docs-meta-card">
+              <div class="docs-meta-label">Color Tokens</div>
+              <div class="docs-meta-value">66</div>
+            </div>
+            <div class="docs-meta-card">
+              <div class="docs-meta-label">A11y Coverage</div>
+              <div class="docs-meta-value">WCAG AA</div>
+            </div>
+            <div class="docs-meta-card">
+              <div class="docs-meta-label">Bundle Size</div>
+              <div class="docs-meta-value">~24<small>kb gz</small></div>
+            </div>
+          </div>
+        </header>
+
+        <!-- =============== COLORS =============== -->
+        <section class="docs-section" id="colors">
+          <div class="docs-section-header">
+            <h2>Color Tokens</h2>
+            <p>
+              Six semantic ramps (gray, blue, red, yellow, green, plus
+              white/black) with 11 stops each. Tokens are exposed as CSS custom
+              properties on <code>:root</code>, then aliased into role tokens
+              (<code>--link</code>, <code>--surface-color</code>,
+              <code>--text-1</code>) so themes can be swapped without touching
+              components.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title"
+                >Full Palette · Hover any swatch for the token name</span
+              >
+            </div>
+            <div class="demo-card-preview" style="display: block">
+              <div class="palette-row" id="palette-gray">
+                <span class="palette-row-label">Gray</span>
+              </div>
+              <div class="palette-row" id="palette-blue">
+                <span class="palette-row-label">Blue · Brand</span>
+              </div>
+              <div class="palette-row" id="palette-red">
+                <span class="palette-row-label">Red · Error</span>
+              </div>
+              <div class="palette-row" id="palette-yellow">
+                <span class="palette-row-label">Yellow · Warning</span>
+              </div>
+              <div class="palette-row" id="palette-green">
+                <span class="palette-row-label">Green · Success</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== TYPOGRAPHY =============== -->
+        <section class="docs-section" id="typography">
+          <div class="docs-section-header">
+            <h2>Typography</h2>
+            <p>
+              Adelle Sans (loaded via Typekit) as the brand sans, with a system
+              fallback stack. Six heading tiers, two body sizes, plus caption
+              and large-paragraph utilities.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Type Scale</span>
+            </div>
+            <div
+              class="demo-card-preview"
+              style="display: block; padding: 8px 24px"
+            >
+              <div class="type-row">
+                <span class="type-row-label">heading-1</span>
+                <span class="heading-1">Stay accountable.</span>
+                <span class="type-row-meta">48 / 64 · 700</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">heading-2</span>
+                <span class="heading-2">Stay accountable.</span>
+                <span class="type-row-meta">36 / 48 · 700</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">heading-3</span>
+                <span class="heading-3">Stay accountable.</span>
+                <span class="type-row-meta">24 / 32 · 700</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">heading-4</span>
+                <span class="heading-4">Stay accountable.</span>
+                <span class="type-row-meta">20 / 24 · 700</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">heading-5</span>
+                <span class="heading-5">Stay accountable.</span>
+                <span class="type-row-meta">16 / 24 · 600</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">heading-6</span>
+                <span class="heading-6">Stay accountable.</span>
+                <span class="type-row-meta">14 / 24 · 600 · UPPER</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">body-1</span>
+                <span class="body-1"
+                  >Real-time alcohol monitoring designed for connection, not
+                  surveillance.</span
+                >
+                <span class="type-row-meta">16 / 150% · 400</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">body-2</span>
+                <span class="body-2"
+                  >Real-time alcohol monitoring designed for connection, not
+                  surveillance.</span
+                >
+                <span class="type-row-meta">14 / 17 · 400</span>
+              </div>
+              <div class="type-row">
+                <span class="type-row-label">caption</span>
+                <span style="font-size: 12px; line-height: 16px"
+                  >Real-time alcohol monitoring designed for connection.</span
+                >
+                <span class="type-row-meta">12 / 16 · 400</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== BUTTONS =============== -->
+        <section class="docs-section" id="buttons">
+          <div class="docs-section-header">
+            <h2>Buttons</h2>
+            <p>
+              One <code>.component-button</code> base, four modifier classes
+              (<code>primary</code>, <code>secondary</code>,
+              <code>borderless</code>, <code>is-loader</code>) and icon helpers.
+              Every state — hover, focus-visible, active, disabled, loading — is
+              defined explicitly.
+            </p>
+          </div>
+
+          <div class="demo-card" data-demo="buttons">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Variants &amp; States</span>
+              <div class="demo-card-tabs">
+                <button class="demo-tab active" data-view="preview">
+                  Preview
+                </button>
+                <button class="demo-tab" data-view="code">Code</button>
+              </div>
+            </div>
+            <div class="demo-card-preview">
+              <button class="component-button primary" style="margin: 0">
+                Primary
+              </button>
+              <button class="component-button secondary">Secondary</button>
+              <button class="component-button borderless">Borderless</button>
+              <button class="component-button" disabled>Disabled</button>
+              <button
+                class="component-button is-loader loading"
+                id="loader-btn"
+              >
+                Loading
+              </button>
+              <button class="component-button icon-left google">
+                Continue with Google
+              </button>
+              <button class="component-button icon-left microsoft">
+                Continue with Microsoft
+              </button>
+            </div>
+            <pre class="demo-card-code">
+&lt;button class="component-button primary"&gt;Primary&lt;/button&gt;
+&lt;button class="component-button secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="component-button borderless"&gt;Borderless&lt;/button&gt;
+&lt;button class="component-button" disabled&gt;Disabled&lt;/button&gt;
+&lt;button class="component-button is-loader loading"&gt;Loading&lt;/button&gt;
+&lt;button class="component-button icon-left google"&gt;Continue with Google&lt;/button&gt;</pre
+            >
+          </div>
+        </section>
+
+        <!-- =============== INPUTS =============== -->
+        <section class="docs-section" id="inputs">
+          <div class="docs-section-header">
+            <h2>Text Inputs</h2>
+            <p>
+              Text inputs use a <code>data-status</code> attribute
+              (<code>error</code>, <code>valid</code>, <code>readonly</code>) to
+              drive border color, helper text color, and focus ring — keeping
+              markup declarative and state changes a one-attribute swap.
+            </p>
+          </div>
+
+          <div class="demo-card" data-demo="inputs">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Validation States</span>
+              <div class="demo-card-tabs">
+                <button class="demo-tab active" data-view="preview">
+                  Preview
+                </button>
+                <button class="demo-tab" data-view="code">Code</button>
+              </div>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="component-text-input">
+                <label for="email-default">Email address</label>
+                <input
+                  id="email-default"
+                  type="email"
+                  placeholder="you@example.com"
+                />
+                <span class="helper-text">We'll never share your email.</span>
+              </div>
+              <div class="component-text-input" data-status="valid">
+                <label for="email-valid">Email address</label>
+                <input
+                  id="email-valid"
+                  type="email"
+                  value="alex@soberlink.com"
+                />
+                <span class="helper-text">Looks good.</span>
+              </div>
+              <div class="component-text-input" data-status="error">
+                <label for="email-error">Email address</label>
+                <input id="email-error" type="email" value="not-an-email" />
+                <span class="helper-text"
+                  >Please enter a valid email address.</span
+                >
+              </div>
+              <div class="component-text-input" readonly="readonly">
+                <label for="email-readonly">Account ID</label>
+                <input
+                  id="email-readonly"
+                  type="text"
+                  value="acct_4f8a92"
+                  readonly
+                />
+                <span class="helper-text">This value is locked.</span>
+              </div>
+            </div>
+            <pre class="demo-card-code">
+&lt;div class="component-text-input" data-status="error"&gt;
+  &lt;label for="email"&gt;Email address&lt;/label&gt;
+  &lt;input id="email" type="email" value="not-an-email" /&gt;
+  &lt;span class="helper-text"&gt;Please enter a valid email address.&lt;/span&gt;
+&lt;/div&gt;</pre
+            >
+          </div>
+        </section>
+
+        <!-- =============== PASSWORD =============== -->
+        <section class="docs-section" id="password">
+          <div class="docs-section-header">
+            <h2>Password Field</h2>
+            <p>
+              Includes a show/hide visibility toggle and a popover that lists
+              requirements with live success states as the user types.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Interactive · Try typing</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div
+                class="component-text-input password-group"
+                style="position: relative"
+              >
+                <label for="pw">Password</label>
+                <div
+                  class="input-requirements"
+                  id="pw-reqs"
+                  data-visible="hidden"
+                >
+                  <p class="requirement-heading">Your password must include:</p>
+                  <ul>
+                    <li id="req-len">At least 8 characters</li>
+                    <li id="req-upper">One uppercase letter</li>
+                    <li id="req-num">One number</li>
+                    <li id="req-special">One special character</li>
+                  </ul>
+                </div>
+                <input
+                  id="pw"
+                  class="password-input"
+                  type="password"
+                  placeholder="Enter a strong password"
+                />
+                <span
+                  class="hide-show"
+                  id="pw-toggle"
+                  role="button"
+                  aria-label="Show password"
+                >
+                  <svg
+                    class="show-icon"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="3"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                  <svg
+                    class="hide-icon"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19m-6.72-1.07a3 3 0 11-4.24-4.24M1 1l22 22"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    />
+                  </svg>
+                </span>
+                <span class="helper-text"
+                  >Click the eye icon to reveal your password.</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== SELECT =============== -->
+        <section class="docs-section" id="select">
+          <div class="docs-section-header">
+            <h2>Select</h2>
+            <p>
+              Native <code>&lt;select&gt;</code> styled with the same status
+              system as inputs — appearance is stripped and a custom chevron is
+              layered in via background-image.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Default · Valid · Error</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="component-select-option">
+                <label for="sel1">Time zone</label>
+                <select id="sel1">
+                  <option>Pacific (US &amp; Canada)</option>
+                  <option>Mountain (US &amp; Canada)</option>
+                  <option>Central (US &amp; Canada)</option>
+                  <option>Eastern (US &amp; Canada)</option>
+                </select>
+                <span class="helper-text">Used for scheduling reminders.</span>
+              </div>
+              <div class="component-select-option" data-status="valid">
+                <label for="sel2">Country</label>
+                <select id="sel2">
+                  <option>United States</option>
+                  <option>Canada</option>
+                </select>
+                <span class="helper-text">Country verified.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== CHECKBOX =============== -->
+        <section class="docs-section" id="checkbox">
+          <div class="docs-section-header">
+            <h2>Checkbox</h2>
+            <p>
+              Custom checkbox with a brand-colored fill and SVG checkmark on
+              <code>:checked</code>. Supports the same
+              <code>data-status="error"</code> validation state.
+            </p>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">States</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="component-checkbox">
+                <label
+                  ><input type="checkbox" /> Remember this device for 30
+                  days</label
+                >
+              </div>
+              <div class="component-checkbox">
+                <label
+                  ><input type="checkbox" checked /> Send me weekly progress
+                  summaries</label
+                >
+              </div>
+              <div class="component-checkbox" data-status="error">
+                <label
+                  ><input type="checkbox" /> I agree to the Terms of
+                  Service</label
+                >
+                <span class="helper-text">You must accept to continue.</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== TOGGLE =============== -->
+        <section class="docs-section" id="toggle">
+          <div class="docs-section-header">
+            <h2>Toggle Switch</h2>
+            <p>
+              Used for binary settings where the change applies immediately (no
+              save button needed). Pure CSS animation on the thumb.
+            </p>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Interactive</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="input-toggle-switch-container js-toggle">
+                <span class="input-toggle-switch__label"
+                  >Email notifications</span
+                >
+                <div class="input-toggle-switch checked">
+                  <div class="input-toggle-switch__circle"></div>
+                </div>
+              </div>
+              <div class="input-toggle-switch-container js-toggle">
+                <span class="input-toggle-switch__label"
+                  >SMS notifications</span
+                >
+                <div class="input-toggle-switch">
+                  <div class="input-toggle-switch__circle"></div>
+                </div>
+              </div>
+              <div class="input-toggle-switch-container js-toggle">
+                <span class="input-toggle-switch__label"
+                  >Two-factor authentication</span
+                >
+                <div class="input-toggle-switch checked">
+                  <div class="input-toggle-switch__circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== ALERTS =============== -->
+        <section class="docs-section" id="alerts">
+          <div class="docs-section-header">
+            <h2>Alerts</h2>
+            <p>
+              Five severities — <code>info</code>, <code>success</code>,
+              <code>warning</code>, <code>error</code>, <code>lockout</code> —
+              each pulling from the matching color ramp's 0/10/50 stops for
+              background, border, and text. Icons are background-image based to
+              keep markup clean.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">All Variants</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="component-alert info">
+                Verification email sent. Check your inbox.
+              </div>
+              <div class="component-alert success">
+                Your password was updated successfully.
+              </div>
+              <div class="component-alert warning">
+                Your session will expire in 2 minutes.
+              </div>
+              <div class="component-alert error">
+                Incorrect email or password. Please try again.
+              </div>
+              <div class="component-alert lockout">
+                Too many attempts. Try again in 10 minutes.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== VERIFICATION CODE =============== -->
+        <section class="docs-section" id="verification">
+          <div class="docs-section-header">
+            <h2>Verification Code</h2>
+            <p>
+              Six-digit input for SMS / email one-time codes. Auto-advances on
+              input and supports paste-fill.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Try pasting a 6-digit code</span>
+            </div>
+            <div class="demo-card-preview stack">
+              <div class="component-input-verification-code">
+                <label>Enter your 6-digit code</label>
+                <div class="sms-inputs-container" id="otp">
+                  <input type="tel" maxlength="1" />
+                  <input type="tel" maxlength="1" />
+                  <input type="tel" maxlength="1" />
+                  <input type="tel" maxlength="1" />
+                  <input type="tel" maxlength="1" />
+                  <input type="tel" maxlength="1" />
+                </div>
+                <span class="helper-text"
+                  >We sent a code to your phone ending in 4321.</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== MODAL =============== -->
+        <section class="docs-section" id="modal">
+          <div class="docs-section-header">
+            <h2>Modal</h2>
+            <p>
+              Centered card with backdrop and slide-up entrance. On mobile
+              (under 428px), the modal docks to the bottom of the viewport and
+              animates from below — a bottom-sheet pattern.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Trigger</span>
+            </div>
+            <div class="demo-card-preview center">
+              <button
+                class="component-button primary"
+                id="open-modal"
+                style="margin: 0"
+              >
+                Open modal
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== TOOLTIP =============== -->
+        <section class="docs-section" id="tooltip">
+          <div class="docs-section-header">
+            <h2>Tooltip</h2>
+            <p>
+              Help-text trigger paired with a positioned tooltip. The trigger
+              uses the <code>tooltip-hover-trigger</code> styling; the tooltip
+              itself is absolutely positioned with a rotated-square tail.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Hover the help icon</span>
+            </div>
+            <div class="demo-card-preview center">
+              <div
+                class="tooltip-wrap"
+                id="tt-wrap"
+                style="max-width: 360px; height: 250px"
+              >
+                <span class="tooltip-hover-trigger" id="tt-trigger"
+                  >Why do we need this?</span
+                >
+                <span class="component-tooltip top" style="top: 32px">
+                  We use your phone number only to send verification codes.
+                  We'll never share or sell it.
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- =============== MENU =============== -->
+        <section class="docs-section" id="menu">
+          <div class="docs-section-header">
+            <h2>Settings Menu</h2>
+            <p>
+              List-style settings menu used for account screens. Each row is
+              either a navigable link (chevron right, hover slides the chevron)
+              or a value-display row.
+            </p>
+          </div>
+
+          <div class="demo-card">
+            <div class="demo-card-header">
+              <span class="demo-card-title">Account Settings · Example</span>
+            </div>
+            <div
+              class="demo-card-preview"
+              style="padding: 24px; display: block"
+            >
+              <p class="contain-heading">Account</p>
+              <ul class="menu-options" style="margin-bottom: 24px">
+                <li class="settings-list-item-link">
+                  <a
+                    href="#"
+                    onclick="event.preventDefault()"
+                    style="text-align: left"
+                  >
+                    <p class="title">Email address</p>
+                    <p class="current-user-value">alex@soberlink.com</p>
+                  </a>
+                </li>
+                <li class="settings-list-item-link">
+                  <a
+                    href="#"
+                    onclick="event.preventDefault()"
+                    style="text-align: left"
+                  >
+                    <p class="title">Password</p>
+                    <p class="current-user-value">Last changed 14 days ago</p>
+                  </a>
+                </li>
+                <li class="settings-list-item-link">
+                  <a
+                    href="#"
+                    onclick="event.preventDefault()"
+                    style="text-align: left"
+                  >
+                    <p class="title">Two-factor authentication</p>
+                    <p class="current-user-value">SMS · ••••4321</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- ========== MODAL (rendered at body level so it overlays everything) ========== -->
+    <div class="component-modal" id="modal" data-visible="hidden">
+      <div class="modal-card">
+        <div class="close-button" id="close-modal">
+          <div></div>
+          <div class="second"></div>
+        </div>
+        <h3>Confirm sign out</h3>
+        <p class="content-section">
+          You'll be signed out of all devices. Any active monitoring sessions
+          will continue uninterrupted.
+        </p>
+        <div class="options">
+          <a
+            href="#"
+            class="component-button primary"
+            onclick="
+              event.preventDefault();
+              document
+                .getElementById('modal')
+                .setAttribute('data-visible', 'hidden');
+              document.body.classList.remove('modal-open');
+            "
+            >Sign out</a
+          >
+          <a
+            href="#"
+            class="component-button borderless"
+            onclick="
+              event.preventDefault();
+              document
+                .getElementById('modal')
+                .setAttribute('data-visible', 'hidden');
+              document.body.classList.remove('modal-open');
+            "
+            >Cancel</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* ============================================================
+     Build palette swatches from the actual CSS custom properties
+     ============================================================ */
+      const ramps = {
+        "palette-gray": {
+          name: "gray",
+          stops: [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+        },
+        "palette-blue": {
+          name: "blue",
+          stops: [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+        },
+        "palette-red": {
+          name: "red",
+          stops: [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+        },
+        "palette-yellow": {
+          name: "yellow",
+          stops: [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+        },
+        "palette-green": {
+          name: "green",
+          stops: [0, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90],
+        },
+      };
+      Object.entries(ramps).forEach(([containerId, { name, stops }]) => {
+        const c = document.getElementById(containerId);
+        stops.forEach((stop) => {
+          const token = `--${name}-${stop}`;
+          const sw = document.createElement("div");
+          sw.className = "swatch";
+          sw.style.background = `var(${token})`;
+          sw.innerHTML = `<span class="swatch-tooltip">${token} · ${stop}</span>`;
+          c.appendChild(sw);
+        });
+      });
+
+      /* ============================================================
+     Demo card preview/code tabs
+     ============================================================ */
+      document.querySelectorAll(".demo-card-tabs").forEach((tabs) => {
+        tabs.querySelectorAll(".demo-tab").forEach((tab) => {
+          tab.addEventListener("click", () => {
+            const card = tabs.closest(".demo-card");
+            tabs
+              .querySelectorAll(".demo-tab")
+              .forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            if (tab.dataset.view === "code") card.classList.add("show-code");
+            else card.classList.remove("show-code");
+          });
+        });
+      });
+
+      /* ============================================================
+     Sidebar nav active state on scroll
+     ============================================================ */
+      const navLinks = document.querySelectorAll(".docs-nav-link");
+      const sections = Array.from(navLinks)
+        .map((l) => document.querySelector(l.getAttribute("href")))
+        .filter(Boolean);
+      function updateActive() {
+        const scrollY = window.scrollY + 80;
+        let current = sections[0];
+        sections.forEach((s) => {
+          if (s.offsetTop <= scrollY) current = s;
+        });
+        navLinks.forEach((l) => {
+          l.classList.toggle(
+            "active",
+            l.getAttribute("href") === "#" + current.id,
+          );
+        });
+      }
+      window.addEventListener("scroll", updateActive);
+      updateActive();
+
+      /* ============================================================
+     Loader button toggle (clicking stops the spinner)
+     ============================================================ */
+      const loader = document.getElementById("loader-btn");
+      loader.addEventListener("click", () => {
+        loader.classList.toggle("loading");
+        loader.textContent = loader.classList.contains("loading")
+          ? "Loading"
+          : "Done";
+        if (!loader.classList.contains("loading")) {
+          setTimeout(() => {
+            loader.classList.add("loading");
+            loader.textContent = "Loading";
+          }, 1500);
+        }
+      });
+
+      /* ============================================================
+     Password requirements popover + show/hide toggle
+     ============================================================ */
+      const pw = document.getElementById("pw");
+      const reqs = document.getElementById("pw-reqs");
+      const reqLen = document.getElementById("req-len");
+      const reqUpper = document.getElementById("req-upper");
+      const reqNum = document.getElementById("req-num");
+      const reqSpecial = document.getElementById("req-special");
+      pw.addEventListener("focus", () =>
+        reqs.setAttribute("data-visible", "visible"),
+      );
+      pw.addEventListener("blur", () =>
+        reqs.setAttribute("data-visible", "hidden"),
+      );
+      pw.addEventListener("input", () => {
+        const v = pw.value;
+        reqLen.setAttribute("data-status", v.length >= 8 ? "success" : "");
+        reqUpper.setAttribute("data-status", /[A-Z]/.test(v) ? "success" : "");
+        reqNum.setAttribute("data-status", /[0-9]/.test(v) ? "success" : "");
+        reqSpecial.setAttribute(
+          "data-status",
+          /[^A-Za-z0-9]/.test(v) ? "success" : "",
+        );
+      });
+      document.getElementById("pw-toggle").addEventListener("click", () => {
+        pw.type = pw.type === "password" ? "text" : "password";
+      });
+
+      /* ============================================================
+     Toggle switches
+     ============================================================ */
+      document.querySelectorAll(".js-toggle").forEach((t) => {
+        t.addEventListener("click", () => {
+          t.querySelector(".input-toggle-switch").classList.toggle("checked");
+        });
+      });
+
+      /* ============================================================
+     OTP auto-advance + paste
+     ============================================================ */
+      const otp = document.getElementById("otp");
+      const otpInputs = otp.querySelectorAll("input");
+      otpInputs.forEach((inp, i) => {
+        inp.addEventListener("input", (e) => {
+          if (inp.value && i < otpInputs.length - 1) otpInputs[i + 1].focus();
+        });
+        inp.addEventListener("keydown", (e) => {
+          if (e.key === "Backspace" && !inp.value && i > 0)
+            otpInputs[i - 1].focus();
+        });
+        inp.addEventListener("paste", (e) => {
+          e.preventDefault();
+          const data = (e.clipboardData.getData("text") || "")
+            .replace(/\D/g, "")
+            .slice(0, otpInputs.length);
+          data.split("").forEach((ch, idx) => {
+            if (otpInputs[idx]) otpInputs[idx].value = ch;
+          });
+          const next = Math.min(data.length, otpInputs.length - 1);
+          otpInputs[next].focus();
+        });
+      });
+
+      /* ============================================================
+     Modal
+     ============================================================ */
+      const modal = document.getElementById("modal");
+      document.getElementById("open-modal").addEventListener("click", () => {
+        modal.setAttribute("data-visible", "visible");
+        document.body.classList.add("modal-open");
+      });
+      document.getElementById("close-modal").addEventListener("click", () => {
+        modal.setAttribute("data-visible", "hidden");
+        document.body.classList.remove("modal-open");
+      });
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.setAttribute("data-visible", "hidden");
+          document.body.classList.remove("modal-open");
+        }
+      });
+
+      /* ============================================================
+     Tooltip (hover via JS to add the visible class)
+     ============================================================ */
+      const ttWrap = document.getElementById("tt-wrap");
+      const ttTrigger = document.getElementById("tt-trigger");
+      ttTrigger.addEventListener("mouseenter", () =>
+        ttWrap.classList.add("tooltip-visible"),
+      );
+      ttTrigger.addEventListener("mouseleave", () =>
+        ttWrap.classList.remove("tooltip-visible"),
+      );
+      ttTrigger.addEventListener("focus", () =>
+        ttWrap.classList.add("tooltip-visible"),
+      );
+      ttTrigger.addEventListener("blur", () =>
+        ttWrap.classList.remove("tooltip-visible"),
+      );
+      ttTrigger.setAttribute("tabindex", "0");
+    </script>
+  </body>
+</html>
