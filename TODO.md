@@ -1,7 +1,14 @@
 # Todo
 
-1. In carousel, make video pause when the carousel has selected another media item
-2. Hide Carousel navigation (left and right) when there is only 1 item in carouself
-3. Need to have the ability to optionally have hyperlinks on carousel items. I'm thinking it needs to have some sort of visual treatment on the caption (like a link-out icon) but also the whole.
-4. If a carousel item is a video, can we make the carousel automatically transition to the next slide when the video is done playing?
-5. Can the play button on videos (does anything else get a play button?) be moved to the center of the content and be a little larger?
+## Done
+
+1. ~~In carousel, make video pause when the carousel has selected another media item~~ ✅
+2. ~~Hide Carousel navigation (left and right) when there is only 1 item in carousel~~ ✅ — also hides dots row + counter at count 1
+3. ~~Optional hyperlinks on carousel items~~ ✅ — `href` + optional `external` on `MediaItem`. Non-interactive slides (image, mockup, placeholder) wrap the whole slide in `<a>`; interactive slides (video, iframe, embed, youtube, vimeo) get a clickable caption with a link-out icon. External is auto-inferred from `http(s)://` and overridable.
+
+## Parked — waiting on Cloudflare decision
+
+4. Auto-advance carousel when a video ends.
+5. Larger centered custom play button on videos.
+
+Both depend on whether videos stay native `<video>` or move to a Cloudflare Stream iframe — Stream's player has its own controls and exposes end-of-playback over `postMessage` rather than `onEnded`, so the implementation differs meaningfully between the two paths.

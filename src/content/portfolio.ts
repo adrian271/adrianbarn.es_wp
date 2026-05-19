@@ -30,29 +30,36 @@ export type HeroVisualKind = MockupKey;
 /**
  * Slide types for the per-project media carousel. `placeholder` slots are
  * stand-ins for real screenshots/video/iframe content that will be filled in
- * later.
+ * later. Any slide may carry an optional `href` — non-interactive slides
+ * (image, mockup, placeholder) become fully clickable; interactive slides
+ * (video, iframe, embed, youtube, vimeo) get a clickable caption with a
+ * link-out icon. `external` defaults to inferring from `http(s)://`.
  */
-export type MediaItem =
-  | { type: "image"; src: string; alt?: string; caption?: string }
-  | { type: "youtube"; id: string; caption?: string }
-  | { type: "vimeo"; id: string; caption?: string }
-  | {
-      type: "video";
-      src: string;
-      poster?: string;
-      caption?: string;
-      autoplay?: boolean;
-      loop?: boolean;
-    }
-  | { type: "iframe"; src: string; allow?: string; caption?: string }
-  | { type: "embed"; html: string; caption?: string }
-  | {
-      type: "mockup";
-      component: MockupKey;
-      background?: string;
-      caption?: string;
-    }
-  | { type: "placeholder"; label: string; caption?: string };
+type MediaLink = { href?: string; external?: boolean };
+
+export type MediaItem = MediaLink &
+  (
+    | { type: "image"; src: string; alt?: string; caption?: string }
+    | { type: "youtube"; id: string; caption?: string }
+    | { type: "vimeo"; id: string; caption?: string }
+    | {
+        type: "video";
+        src: string;
+        poster?: string;
+        caption?: string;
+        autoplay?: boolean;
+        loop?: boolean;
+      }
+    | { type: "iframe"; src: string; allow?: string; caption?: string }
+    | { type: "embed"; html: string; caption?: string }
+    | {
+        type: "mockup";
+        component: MockupKey;
+        background?: string;
+        caption?: string;
+      }
+    | { type: "placeholder"; label: string; caption?: string }
+  );
 
 export type CaseStudy = {
   id: string;
@@ -626,11 +633,13 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: "video",
         src: "/portfolio-assets/blast/blastv3_720.mp4",
         caption: "Blast Website 2019",
+        autoplay: true,
       },
       {
         type: "video",
         src: "/portfolio-assets/blast/blastv2_720.mp4",
         caption: "Blast Website 2018",
+        autoplay: true,
       },
       // {
       //   type: "mockup",
