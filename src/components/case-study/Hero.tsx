@@ -42,7 +42,7 @@ export default function CaseStudyHero({ data }: { data: CaseStudy }) {
           <p className="cs-hero-summary reveal in d3">{data.summary}</p>
         </div>
 
-        <div className="cs-hero-meta reveal in d4">
+        {/* <div className="cs-hero-meta reveal in d4">
           <div>
             <span className="label">Role</span>
             <span className="value">{data.role}</span>
@@ -59,7 +59,7 @@ export default function CaseStudyHero({ data }: { data: CaseStudy }) {
             <span className="label">Years</span>
             <span className="value">{data.year}</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

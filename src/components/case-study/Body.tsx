@@ -97,33 +97,33 @@ export default function CaseStudyBody({
         )}
 
         <Phase
-          num="01 — The Challenge"
-          name="What the problem looked like."
+          num="01: Resource Analytics"
+          name="Shipping a new cloud product in 2026"
           prose={data.problem.prose}
           bullets={data.problem.bullets}
         />
 
         <Phase
-          num="02 — Approach"
-          name="How I attacked it."
+          num="02: Acceleration Team"
+          name="Turning astronomical roadblocks into simple solutions"
           prose={data.approach.prose}
           bullets={data.approach.bullets}
         />
 
         <Phase
-          num="03 — What I Built"
-          name="The shipped work."
+          num="03: Generative AI Demos"
+          name="Creating experiences for Executives to present to the world"
           prose={data.built.prose}
           bullets={data.built.bullets}
         />
-
+        {/* 
         <Phase
-          num="04 — Outcome"
+          num="04: Outcome"
           name="What it shipped into."
           prose={data.outcome.prose}
         >
           <MetricsRow metrics={data.outcome.metrics} />
-        </Phase>
+        </Phase> */}
 
         <div className="cs-stack">
           <span className="cs-stack-label">Stack & Tools</span>
@@ -134,17 +134,16 @@ export default function CaseStudyBody({
           </div>
         </div>
 
-        <div className="cs-next">
+        {/* <div className="cs-next">
           <a href={nextLink.href} className="cs-next-link">
-            Next →{" "}
-            <em style={{ fontStyle: "italic" }}>{nextLink.label}</em>
+            Next → <em style={{ fontStyle: "italic" }}>{nextLink.label}</em>
           </a>
           <div className="cs-next-meta">
             Case Study {nextLink.num}
             <br />
             <span style={{ opacity: 0.7 }}>{nextLink.year}</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
