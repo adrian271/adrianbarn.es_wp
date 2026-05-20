@@ -97,25 +97,29 @@ export default function CaseStudyBody({
         )}
 
         <Phase
-          num="01: Resource Analytics"
-          name="Shipping a new cloud product in 2026"
+          num={data.problem.num}
+          name={data.problem.name}
           prose={data.problem.prose}
           bullets={data.problem.bullets}
         />
 
-        <Phase
-          num="02: Acceleration Team"
-          name="Turning astronomical roadblocks into simple solutions"
-          prose={data.approach.prose}
-          bullets={data.approach.bullets}
-        />
+        {data.approach && (
+          <Phase
+            num={data.approach.num}
+            name={data.approach.name}
+            prose={data.approach.prose}
+            bullets={data.approach.bullets}
+          />
+        )}
 
-        <Phase
-          num="03: Generative AI Demos"
-          name="Creating experiences for Executives to present to the world"
-          prose={data.built.prose}
-          bullets={data.built.bullets}
-        />
+        {data.built && (
+          <Phase
+            num={data.built.num}
+            name={data.built.name}
+            prose={data.built.prose}
+            bullets={data.built.bullets}
+          />
+        )}
         {/* 
         <Phase
           num="04: Outcome"

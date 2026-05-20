@@ -8,6 +8,8 @@
 export type Bullet = readonly [label: string, html: string];
 
 export type Phase = {
+  num: string;
+  name: string;
   prose: string;
   bullets?: Bullet[];
 };
@@ -86,9 +88,9 @@ export type CaseStudy = {
   mockup: MockupKey;
 
   problem: Phase;
-  approach: Phase;
-  built: Phase;
-  outcome: Phase & { metrics: Metric[] };
+  approach?: Phase | false;
+  built?: Phase | false;
+  outcome?: Phase & { metrics: Metric[] };
 
   stack: string[];
 
@@ -122,6 +124,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "oracle",
 
     problem: {
+      num: "01: Resource Analytics",
+      name: "Shipping a new cloud product in 2026",
       prose:
         "Oracle's Resource Analytics was a brand-new first-party product on the OCI Console. We started with the fundamentals and built the entire stack - Frontend, Control Plane, Management Plane and Data Plane. We shipped a product, squashed bugs and measured its success. After 1.0, we evaluated what wasn't working, then developed new tools and documentation for the customer until we were satisfied that the product was a success.",
       bullets: [
@@ -141,6 +145,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "02: Acceleration Team",
+      name: "Turning astronomical roadblocks into simple solutions",
       prose:
         "In 2024, I joined an acceleration initiative to radically reduce lead times for data center development planning. We precisely identified process pain points, transforming the creation of multi-week network panel schematics into a 1-minute compile. After 2 months of development, we shipped a React + Python app to serve as a tool for internal employees.",
       bullets: [
@@ -157,12 +163,16 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     built: {
+      num: "03: Generative AI Demos",
+      name: "Creating experiences for Executives to present to the world",
       prose:
         "In 2023, I was brought on as part of a Tiger Team to develop experiences for a fast-approaching Oracle Cloud World Demo. I put together a UI for Oracle Health that takes several customer data points and compiles a solution for a physician to review. My demo, featuring all of the cues of a modern agentic interface, was chosen and presented by Clay Magouryk.",
       bullets: [["Stack", "React/Preact, TypeScript and Python"]],
     },
 
     outcome: {
+      num: "02",
+      name: "Shipping a new cloud product in 2026",
       prose:
         "Resource Analytics shipped on the pre-release framework, our docs became reference material across OCI, and the AI-assisted development practice I led became a model adopted by adjacent teams.",
       metrics: [
@@ -193,6 +203,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         src: "/portfolio-assets/oracle/oracle-cloudworld-2023-clay-magouryk.mp4",
         caption:
           "Adrian Barnes' GenAI demo featured in Clay Magouyrk's CloudWorld 2023 keynote",
+        href: "https://www.youtube.com/live/ESuP_rtTeQo?t=2843s",
       },
       {
         type: "image",
@@ -283,8 +294,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "tenant",
 
     problem: {
+      num: "01 Property map plugin",
+      name: "Inventing a new way for customers to interact with the product",
       prose:
-        "Tenant's customers - self-storage facility operators - needed to manage hundreds of units laid out across multiple floors and buildings. The existing tooling was a flat spreadsheet. They wanted a spatial, interactive operator view: pan, zoom, drag units, drop new ones, rotate stairs, switch between floors. The catch: no geographic data, no real coordinates, no map library that fit.",
+        "I solo-built the Property Map feature, an operator-facing interactive map for self-storage facilities with pan, zoom, multi-floor views, and precise entity rendering. I elevated the edit mode for advanced resource manipulation, adapting Vue-Draggable-Resizable as a base and layering custom domain logic on top. I partnered with the design team on the interaction model and contributed support for the Python API layer.",
       bullets: [
         [
           "Domain",
@@ -302,8 +315,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "Component Library Architecture",
+      name: "Setting standards for a growing product and engineering team",
       prose:
-        'I skipped Mapbox, Leaflet, and the rest of the geographic mapping libraries - none of them modeled "a building with floors," they modeled "the Earth." Instead I adapted Vue Draggable Resizable as the primitive and layered the spatial logic, snapping, rotation, and floor switching on top.',
+        "I joined as a senior IC on the frontend team for Hummingbird, Tenant's self-storage management platform, where component sprawl had become a major hindrance to development. I identified and led the solution: a shared component library packaged as an internal NPM module and hosted via Storybook. I served as the primary engineer with a supporting frontend engineer, shipped the library, integrated it with Hummingbird, and designed it for cross-project use.",
       bullets: [
         [
           "Primitive",
@@ -324,26 +339,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
     },
 
-    built: {
-      prose:
-        "I shipped the Property Map - a multi-floor, interactive operator view with pan, zoom, drag-and-drop units, rotation, snapping, and per-floor switching. It became the visual centerpiece of the operator experience. Along the way I contributed to the supporting Python API and stewarded Hummingbird through its v1 release.",
-      bullets: [
-        [
-          "Property Map",
-          "Multi-floor interactive editor - pan, zoom, drag, rotate, snap",
-        ],
-        [
-          "Hummingbird",
-          "Internal Vue component library + Storybook, used across the product",
-        ],
-        [
-          "API",
-          "Python contributions to the supporting endpoints and validation layer",
-        ],
-      ],
-    },
+    built: false,
 
     outcome: {
+      num: "02",
+      name: "=====",
       prose:
         "The Property Map shipped and became the spatial source-of-truth for Tenant's customers. Hummingbird stabilized cross-team UI consistency. The Vuex consolidation reduced our state-related bug volume and made onboarding new engineers materially faster.",
       metrics: [
@@ -399,8 +399,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "soberlink",
 
     problem: {
+      num: "01 - Greenfield Identity Platform",
+      name: "Identity platform for a healthcare company",
       prose:
-        "Soberlink - a healthcare company best known for its FDA-cleared remote alcohol monitoring devices - wanted to modernize its .NET stack. They had a designer creating their first proper design system from scratch, no Vue frontend to speak of, and a critical-path requirement: build an identity layer (signup, MFA, login, account) that real patients and clinicians would depend on every day.",
+        "I built Soberlink's identity platform UI as the sole frontend engineer, with end-to-end responsibility for sign-up, user information capture, multi-factor authentication setup, login, and account management flows. Our stack was Vue 3 (very early adoption), TypeScript, and PostCSS. The product shipped and remains live as a business-critical part of Soberlink's platform.",
       bullets: [
         [
           "Stakes",
@@ -418,8 +420,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "02 - Component Library Architecture",
+      name: "Component Library Architecture",
       prose:
-        "I partnered tightly with the designer - building components as the design language emerged, and pushing back where the implementation gave us better information than the static mock. We chose Vue 3 with TypeScript and PostCSS, and from day one I extracted everything reusable into a private component library backed by Storybook so future Soberlink products could consume it.",
+        "I was tasked with standardizing brand UI elements and web components. I worked closely with the designer to build the design system from scratch, bringing their work to life as a component library with a Storybook UI for all engineers to reference.",
       bullets: [
         [
           "Cadence",
@@ -436,24 +440,11 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
     },
 
-    built: {
-      prose:
-        "I shipped the full identity surface: account creation, MFA setup, login, password reset, account management. Each flow is healthcare-grade and remains business-critical infrastructure today.",
-      bullets: [
-        [
-          "Signup",
-          "New user account creation with verification + invitation flows",
-        ],
-        ["MFA", "Multi-factor enrollment and challenge flows - TOTP and SMS"],
-        ["Login", "Persistent session management with recovery paths"],
-        [
-          "Account",
-          "Self-service account management for patients and clinical admins",
-        ],
-      ],
-    },
+    built: false,
 
     outcome: {
+      num: "02",
+      name: "=====",
       prose:
         "The Vue 3 frontend shipped and is still running Soberlink's identity surfaces - five years later, real patients and clinicians use it daily. The component library spawned and stabilized adjacent Soberlink products.",
       metrics: [
@@ -525,6 +516,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "blast",
 
     problem: {
+      num: "02",
+      name: "=====",
       prose:
         "Blast was an early-stage fintech where playing mobile games earned real money into an FDIC-insured savings account. We had a seed-stage runway, a marketing site to ship before the raise closed, and a non-technical content team that wanted to keep editing the site without engineering on the critical path.",
       bullets: [
@@ -541,6 +534,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "02",
+      name: "=====",
       prose:
         "I stood up the marketing site fast on a stack our content team could own (Craft CMS + GraphQL), wired Optimizely A/B testing into the bones, and then expanded the same foundation into Gatsby-based product surfaces. I contributed to the Rails backend where the web team's needs touched core systems - Missions, Campaigns, and admin tooling.",
       bullets: [
@@ -562,28 +557,10 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       ],
     },
-
-    built: {
-      prose:
-        "I architected and shipped Learn & Earn - Blast's first product surface beyond the core app - plus reusable white-label funnels and the marketing site that supported the company through its seed round. Along the way I mentored a junior engineer through the full project lifecycle.",
-      bullets: [
-        ["Marketing site", "Craft CMS + GraphQL, content-editable, A/B tested"],
-        [
-          "Learn & Earn",
-          "Gatsby-based sponsored savings surface - architecture and lead engineering",
-        ],
-        [
-          "White-label",
-          "Reusable signup funnel framework - first deployment: Junior Achievement",
-        ],
-        [
-          "Mentorship",
-          "Onboarded and mentored a junior engineer through full project ownership",
-        ],
-      ],
-    },
-
+    built: false,
     outcome: {
+      num: "02",
+      name: "=====",
       prose:
         "The marketing site launched ahead of the raise. Learn & Earn shipped and became a recurring sponsored-content revenue stream. The white-label funnel framework let business development partners launch in days rather than months.",
       metrics: [
@@ -609,14 +586,16 @@ export const CASE_STUDIES: CaseStudy[] = [
       {
         type: "video",
         src: "/portfolio-assets/blast/blastv3_720.mp4",
-        caption: "Blast Website 2019",
+        caption: "Blast Website 2019 - VIEW LIVE DEMO",
         autoplay: true,
+        href: "https://blast-v3-archive.netlify.app/",
       },
       {
         type: "video",
         src: "/portfolio-assets/blast/blastv2_720.mp4",
-        caption: "Blast Website 2018",
+        caption: "Blast Website 2018 - VIEW LIVE DEMO",
         autoplay: true,
+        href: "https://blast-v2-archive.netlify.app/",
       },
       // {
       //   type: "mockup",
@@ -672,6 +651,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "billabong",
 
     problem: {
+      num: "02",
+      name: "=====",
       prose:
         "Billabong Group ran four global surf brands - Billabong, RVCA, Element, Von Zipper - all on a shared CakePHP + Tomcat e-commerce codebase with per-brand template overrides. The catalog was massive, the brands had wildly different aesthetics, and the company needed both deep visual differentiation per brand and operational efficiency from the shared platform.",
       bullets: [
@@ -688,6 +669,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "02",
+      name: "=====",
       prose:
         "I led a near-complete rebuild of the RVCA site - a label whose visual language was the furthest from the platform default - pushing the override system to its limit. After that, I drove WCAG remediation across all four brands, set up Google Tag Manager and structured-data SEO, and contributed UI updates to Element and Von Zipper.",
       bullets: [
@@ -705,6 +688,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     built: {
+      num: "02",
+      name: "=====",
       prose:
         "RVCA shipped as a near-complete rebuild within the shared platform - proving the override architecture could carry radically different visual identities. The WCAG work brought all four brand sites up to AA. The GTM/SEO foundation gave the marketing team self-service measurement across the portfolio.",
       bullets: [
@@ -721,6 +706,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     outcome: {
+      num: "02",
+      name: "=====",
       prose:
         "RVCA's rebuild validated the override architecture for radically off-default brands. The accessibility work removed legal exposure and improved real customer experience. The measurement foundation is still informing the DTC team's decisions years later.",
       metrics: [
@@ -740,30 +727,37 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     gallery: [
       {
-        type: "mockup",
-        component: "billabong",
-        caption: "RVCA - brand template overrides on the shared platform",
+        type: "video",
+        src: "/portfolio-assets/billabong/billabong-womens-gift-collection-2016-2017.mp4",
+        caption: "Billabong 2016-2017 Gift Guide - VIEW LIVE DEMO",
+        autoplay: true,
+        href: "https://billabong-archive-womens-gift-guide.netlify.app/beach/",
       },
-      {
-        type: "placeholder",
-        label: "Billabong Homepage",
-        caption: "Pre/post rebuild comparison",
-      },
-      {
-        type: "placeholder",
-        label: "Element Sub-brand",
-        caption: "UI updates within the shared platform",
-      },
-      {
-        type: "placeholder",
-        label: "Von Zipper Sub-brand",
-        caption: "Coordinated rollouts across the portfolio",
-      },
-      {
-        type: "placeholder",
-        label: "WCAG Audit Demo",
-        caption: "Before/after accessibility scoring",
-      },
+      // {
+      //   type: "mockup",
+      //   component: "billabong",
+      //   caption: "RVCA - brand template overrides on the shared platform",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Billabong Homepage",
+      //   caption: "Pre/post rebuild comparison",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Element Sub-brand",
+      //   caption: "UI updates within the shared platform",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "Von Zipper Sub-brand",
+      //   caption: "Coordinated rollouts across the portfolio",
+      // },
+      // {
+      //   type: "placeholder",
+      //   label: "WCAG Audit Demo",
+      //   caption: "Before/after accessibility scoring",
+      // },
     ],
   },
 
@@ -791,6 +785,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "futures",
 
     problem: {
+      num: "02",
+      name: "=====",
       prose:
         "I joined Futures Fins in 2004 as a young generalist at a fin manufacturer in San Clemente. There was no web team - the company had a basic brochure site and a need to grow into e-commerce as direct-to-consumer became viable for surf hardgoods. Over the next twelve years, I grew with the company.",
       bullets: [
@@ -804,6 +800,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
+      num: "02",
+      name: "=====",
       prose:
         "I grew the company's web development function as the need emerged. I built and maintained the corporate site, picked up PHP and SQL as the catalog needs got serious, and led development on the Magento storefront when DTC e-commerce became a strategic priority for the brand.",
       bullets: [
@@ -814,6 +812,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     built: {
+      num: "02",
+      name: "=====",
       prose:
         "The Futures Fins corporate site, the Magento storefront, and twelve years of incremental product launches, team-rider campaigns, and seasonal collection drops. This is where I learned to ship - not at startup-cadence speed, but at the steady cadence of a real business serving real customers.",
       bullets: [
@@ -824,6 +824,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     outcome: {
+      num: "02",
+      name: "=====",
       prose:
         'Where it all started. Twelve years of learning to ship, learning the business, learning what "production" really means when your customers are surf shops and your downtime affects revenue.',
       metrics: [
@@ -843,24 +845,25 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     gallery: [
       {
-        type: "mockup",
-        component: "futures",
-        caption: "Magento storefront - fin catalog with product detail",
+        type: "video",
+        src: "/portfolio-assets/futures-fins/futuresfins-2014-catalog.mp4",
+        caption: "Futures Fins 2014 Catalog",
+        autoplay: true,
       },
       {
-        type: "placeholder",
-        label: "Wayback Machine Capture",
-        caption: "Snapshot of the corporate site circa 2010 - iframe target",
+        type: "image",
+        src: "/portfolio-assets/futures-fins/futuresfins-2017.png",
+        caption: "Futures Fins 2017",
       },
       {
-        type: "placeholder",
-        label: "Team Rider Campaign",
-        caption: "Seasonal collection drop microsite",
+        type: "image",
+        src: "/portfolio-assets/futures-fins/futuresfins-2016.png",
+        caption: "Futures Fins 2016",
       },
       {
-        type: "placeholder",
-        label: "Fin Configurator",
-        caption: "Pre-modern interactive product picker",
+        type: "image",
+        src: "/portfolio-assets/futures-fins/futuresfins-2015.png",
+        caption: "Futures Fins 2015",
       },
     ],
   },
