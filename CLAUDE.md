@@ -2,6 +2,33 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Exporting site copy to a Word doc
+
+When the user asks for "all the copy", "a copy doc", "the site text for an editor/copywriter", etc.:
+
+```bash
+python3 scripts/build_copy_doc.py
+```
+
+This prints the path to a timestamped `.docx` saved in `~/Downloads`
+(e.g. `adrianbarnes-site-copy_YYYY-MM-DD_HHMM.docx`). The user wants a fresh
+timestamped copy each time (the site changes), so just re-run it — don't
+overwrite or dedupe.
+
+How it works (two parts, both in `scripts/`):
+- `export-copy.ts` — run by the Python script via `node --experimental-strip-types`; imports the real `src/content/portfolio.ts` (CASE_STUDIES, LANDER, CONTACT) and `src/config/site.ts` (SITE) and dumps JSON. Because it reads the actual source, the doc stays accurate as copy changes — **no hardcoded copy to maintain.**
+- `build_copy_doc.py` — renders that JSON into a labeled `.docx` via `python-docx`. Every piece of copy gets a grey "what this is / where it lives" caption so a non-technical editor can work without site access.
+
+Requirements: Node ≥22 (type-stripping) and `python-docx` (installed to the
+user site via `python3 -m pip install --user python-docx`). If `python-docx`
+is missing, reinstall it the same way.
+
+Important nuance the doc encodes: some copy lives in the data but is currently
+commented out in the components (the hero meta block, the Outcome phase, the
+Next-project link). The doc labels these **"NOT CURRENTLY SHOWN ON SITE"** so
+the editor isn't misled. If those get re-enabled in `Hero.tsx` / `Body.tsx`,
+update the corresponding `note(...)` lines in `build_copy_doc.py`.
+
 ## Status: pre-implementation
 
 The repo currently contains only `headless-wp-nextjs-plan.md` — a handoff document describing the intended architecture. There is no Next.js project, no `package.json`, no source code, and no committed history yet. Before suggesting commands or referencing code paths, read the plan; do not invent files or scripts that don't exist.

@@ -568,7 +568,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       num: "03",
       name: "Backend & Admin Tools",
       prose:
-        "ontributed Rails MVC and data modeling on Campaigns and Missions (user-facing earning features) and built significant operator admin tooling for managing users, campaigns, and missions on a microservice-based PostgreSQL backend.",
+        "Contributed Rails MVC and data modeling on Campaigns and Missions (user-facing earning features) and built significant operator admin tooling for managing users, campaigns, and missions on a microservice-based PostgreSQL backend.",
       bullets: [
         [
           "Marketing",
