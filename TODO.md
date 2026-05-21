@@ -22,3 +22,11 @@ Both depend on whether videos stay native `<video>` or move to a Cloudflare Stre
    - Coexists with `autoplay: true` as a distinct mode: use plain `autoplay` on videos that have real audio someone might want to unmute (e.g. the CloudWorld keynote); use `ambient` on silent screen-captures and decorative motion.
 
    Why parked: I like the cleaner UX but want to inventory which of the actual gallery videos are genuinely silent-decorative vs. audio-bearing before committing to the second mode. If only 1–2 videos qualify, it may not justify the extra type field — could just drop controls case-by-case via a one-off prop.
+
+## Feedback to address
+
+1. "It took me a minute to realize that you were showing the work before getting into the case study, and there is a lot going on visually, so it also took me a second to figure out which company I was looking out because the eyebrows are very small and subtle."
+2. "It's a lot to scroll through, I know you have the navigation on the side with logos, and I atually like that. but maybe they could be collapsible?"
+3. "give some other visual indication that you are going to the next job"
+4. "I think there is also some color choices I would maybe change just to make things easier to read too"
+5. Play with Copy first, then carousel after

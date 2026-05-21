@@ -204,6 +204,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         caption:
           "Adrian Barnes' GenAI demo featured in Clay Magouyrk's CloudWorld 2023 keynote",
         href: "https://www.youtube.com/live/ESuP_rtTeQo?t=2843s",
+        autoplay: true,
       },
       {
         type: "image",
