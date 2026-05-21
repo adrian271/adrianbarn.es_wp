@@ -896,6 +896,6 @@ export const CONTACT = {
   phoneDisplay: "949 · 306 · 6000",
   linkedin: "https://linkedin.com/in/adrian-barnes-software-engineer",
   linkedinHandle: "/in/adrian-barnes-software-engineer",
-  location: "San Juan Capistrano, CA",
-  colophon: "Case study variant · v1",
+  location: "Orange County, CA",
+  colophon: "",
 } as const;

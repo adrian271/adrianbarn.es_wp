@@ -300,11 +300,7 @@ export default function MediaCarousel({
   const [idx, setIdx] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
 
-  const safeItems: MediaItem[] =
-    items && items.length
-      ? items
-      : [{ type: "placeholder", label: "No media yet" }];
-  const count = safeItems.length;
+  const count = items.length;
   const hasMany = count > 1;
   const go = (n: number) => setIdx(((n % count) + count) % count);
 
@@ -313,8 +309,7 @@ export default function MediaCarousel({
     const el = ref.current;
     if (!el) return;
     const onKey = (e: KeyboardEvent) => {
-      if (!el.matches(":focus-within") && document.activeElement !== el)
-        return;
+      if (!el.matches(":focus-within") && document.activeElement !== el) return;
       if (e.key === "ArrowRight") {
         e.preventDefault();
         setIdx((i) => (i + 1) % count);
@@ -328,7 +323,7 @@ export default function MediaCarousel({
     return () => window.removeEventListener("keydown", onKey);
   }, [count]);
 
-  const current = safeItems[idx];
+  const current = items[idx];
   const currentExternal = isExternal(current);
   const style: CSSVars = {
     "--carousel-accent": accent ?? "var(--cs-accent, var(--accent))",
@@ -343,7 +338,7 @@ export default function MediaCarousel({
       aria-roledescription="carousel"
     >
       <div className="carousel-stage">
-        {safeItems.map((item, i) => (
+        {items.map((item, i) => (
           <div
             key={i}
             className={"carousel-slide " + (i === idx ? "active" : "")}
@@ -425,7 +420,7 @@ export default function MediaCarousel({
         </div>
         {hasMany && (
           <div className="carousel-dots" role="tablist">
-            {safeItems.map((_, i) => (
+            {items.map((_, i) => (
               <button
                 key={i}
                 className={"carousel-dot " + (i === idx ? "active" : "")}
