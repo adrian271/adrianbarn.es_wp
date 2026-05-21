@@ -90,11 +90,11 @@ export default function CaseStudyBody({
       style={style}
     >
       <div className="cs-body-inner">
-        {data.gallery && data.gallery.length > 0 && (
+        {/* {data.gallery && data.gallery.length > 0 && (
           <div className="cs-gallery-top">
             <MediaCarousel items={data.gallery} accent={data.accent} />
           </div>
-        )}
+        )} */}
 
         <Phase
           num={data.problem.num}
@@ -128,6 +128,12 @@ export default function CaseStudyBody({
         >
           <MetricsRow metrics={data.outcome.metrics} />
         </Phase> */}
+
+        {data.gallery && data.gallery.length > 0 && (
+          <div className="cs-gallery-top">
+            <MediaCarousel items={data.gallery} accent={data.accent} />
+          </div>
+        )}
 
         <div className="cs-stack">
           <span className="cs-stack-label">Stack & Tools</span>

@@ -18,12 +18,7 @@ export default function CaseStudyLander() {
             {LANDER.nav.map((n) => {
               const external = "external" in n && n.external;
               return external ? (
-                <a
-                  key={n.label}
-                  href={n.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a key={n.label} href={n.href} target="_blank" rel="noreferrer">
                   {n.label}
                 </a>
               ) : (
@@ -39,9 +34,9 @@ export default function CaseStudyLander() {
           <div className="cs-lander-left">
             <div className="cs-lander-kicker reveal in d1">{LANDER.kicker}</div>
             <h1 className="cs-lander-name reveal in d2">
-              {LANDER.nameTop}
+              Adrian
               <br />
-              Barn<span className="dot">.</span>es
+              Barnes
             </h1>
           </div>
           <div className="cs-lander-right reveal in d3">
@@ -61,9 +56,9 @@ export default function CaseStudyLander() {
             <span className="label">{LANDER.bottom[1].label}</span>
             <span className="value">{LANDER.bottom[1].value}</span>
           </div>
-          <div className="cs-lander-bottom-mid">
+          {/* <div className="cs-lander-bottom-mid">
             <div className="cs-lander-scroll">SCROLL</div>
-          </div>
+          </div> */}
           <div>
             <span className="label">{LANDER.bottom[2].label}</span>
             <span className="value">{LANDER.bottom[2].value}</span>

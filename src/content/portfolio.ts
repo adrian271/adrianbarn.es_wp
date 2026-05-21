@@ -327,7 +327,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
         [
           "State",
-          "Introduced Vuex with persisted state to consolidate fragmented store patterns",
+          "Vuex with persisted state to consolidate fragmented store patterns",
         ],
         [
           "Components",
@@ -517,10 +517,10 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "blast",
 
     problem: {
-      num: "02",
-      name: "=====",
+      num: "01",
+      name: "Investor-Ready Launch",
       prose:
-        "Blast was an early-stage fintech where playing mobile games earned real money into an FDIC-insured savings account. We had a seed-stage runway, a marketing site to ship before the raise closed, and a non-technical content team that wanted to keep editing the site without engineering on the critical path.",
+        "Built the public marketing site that helped support the company's launch to roughly 75,000 users and a $12M seed raise. Later launched the corporate site for sibling product ATM.com, now a business generating $15M+ annually.",
       bullets: [
         ["Timing", "Marketing site needed live before the seed raise closed"],
         [
@@ -536,9 +536,9 @@ export const CASE_STUDIES: CaseStudy[] = [
 
     approach: {
       num: "02",
-      name: "=====",
+      name: "Web App Ownership",
       prose:
-        "I stood up the marketing site fast on a stack our content team could own (Craft CMS + GraphQL), wired Optimizely A/B testing into the bones, and then expanded the same foundation into Gatsby-based product surfaces. I contributed to the Rails backend where the web team's needs touched core systems - Missions, Campaigns, and admin tooling.",
+        "Acted as the lead web engineer at an early-stage fintech startup. Built and owned the company's marketing presence across product pivots in React, Gatsby, GraphQL, and Craft CMS with TypeScript, Sass, and CSS3 animations. Responsible for Plaid integrations on the frontend for bank-account linking and identity/financial-data verification flows in user signup and account-funding paths. Architected the Gatsby-based sponsored-content savings app where users took practice tests to deposit money into savings; mentored a junior engineer through the project. Reused the same foundation to ship a Junior Achievement partner build.",
       bullets: [
         [
           "Marketing",
@@ -558,9 +558,32 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
       ],
     },
-    built: false,
+    built: {
+      num: "03",
+      name: "Backend & Admin Tools",
+      prose:
+        "ontributed Rails MVC and data modeling on Campaigns and Missions (user-facing earning features) and built significant operator admin tooling for managing users, campaigns, and missions on a microservice-based PostgreSQL backend.",
+      bullets: [
+        [
+          "Marketing",
+          "Craft CMS + GraphQL - content team self-serve, Optimizely A/B baked in",
+        ],
+        [
+          "Product",
+          "Gatsby for Learn & Earn - sponsored-content savings surface",
+        ],
+        [
+          "Reuse",
+          "Same foundation powered white-label sign-up funnels (incl. Junior Achievement)",
+        ],
+        [
+          "Backend",
+          "Rails contributions to Campaigns, Missions, and admin tooling",
+        ],
+      ],
+    },
     outcome: {
-      num: "02",
+      num: "03",
       name: "=====",
       prose:
         "The marketing site launched ahead of the raise. Learn & Earn shipped and became a recurring sponsored-content revenue stream. The white-label funnel framework let business development partners launch in days rather than months.",
@@ -652,53 +675,56 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "billabong",
 
     problem: {
-      num: "02",
-      name: "=====",
+      num: "01",
+      name: "E-commerce Frontend Lead",
       prose:
-        "Billabong Group ran four global surf brands - Billabong, RVCA, Element, Von Zipper - all on a shared CakePHP + Tomcat e-commerce codebase with per-brand template overrides. The catalog was massive, the brands had wildly different aesthetics, and the company needed both deep visual differentiation per brand and operational efficiency from the shared platform.",
+        "Billabong Group ran multiple brands including Billabong, RVCA, Element, Von Zipper. As a lead frontend engineer I maintained and developed on a shared CakePHP + Tomcat e-commerce codebase with per-brand template overrides. The catalog was massive, the brands had wildly different aesthetics, and the company needed both deep visual differentiation per brand and operational efficiency from the shared platform.",
       bullets: [
-        ["Platform", "CakePHP + Tomcat with per-brand template overrides"],
         [
-          "Brands",
-          "Billabong, RVCA, Element, Von Zipper - distinct visual identities, shared platform",
+          "Platform",
+          "CakePHP + Tomcat with per-brand template overrides. jQueery, SCSS, Gulp",
+        ],
+        ["Brands", "Billabong, RVCA, Element, Von Zipper and more"],
+        [
+          "A11Y & SEO",
+          "WCAG accessibility remediation across the portfolio. SEO + GTM rollout.",
         ],
         [
-          "Mandates",
-          "WCAG accessibility remediation across the portfolio. SEO + GTM rollout.",
+          "Team",
+          "UX Team of DTC (Direct to Consumer) - PM, Designers, 2 Frontend Engineers, shared Backend Team",
         ],
       ],
     },
 
     approach: {
       num: "02",
-      name: "=====",
+      name: "E-commerce Frontend Lead",
       prose:
         "I led a near-complete rebuild of the RVCA site - a label whose visual language was the furthest from the platform default - pushing the override system to its limit. After that, I drove WCAG remediation across all four brands, set up Google Tag Manager and structured-data SEO, and contributed UI updates to Element and Von Zipper.",
       bullets: [
-        ["Lead", "Near-complete RVCA site rebuild within the shared platform"],
         [
-          "Accessibility",
-          "Drove WCAG 2.1 AA remediation across all four brand sites",
+          "Cross-Collab",
+          "Worked closely with RVCA stakeholders to understand and implement long-awaited design updates",
         ],
+        ["A11Y", "Drove WCAG 2.1 AA remediation across all four brand sites"],
         ["SEO", "Structured data, GTM rollout, Lighthouse-driven perf work"],
-        [
-          "Cross-brand",
-          "UI updates and shared improvements on Billabong, Element, Von Zipper",
-        ],
       ],
     },
 
     built: {
-      num: "02",
-      name: "=====",
+      num: "03",
+      name: "Fast Seasonal Landing Sites",
       prose:
-        "RVCA shipped as a near-complete rebuild within the shared platform - proving the override architecture could carry radically different visual identities. The WCAG work brought all four brand sites up to AA. The GTM/SEO foundation gave the marketing team self-service measurement across the portfolio.",
+        "I worked closely with brand teams to quickly build seasonal landing pages: highly interactive experiences used for pushing sales campaigns. This was a test of how quickly good work could be turned around and deployed.",
       bullets: [
         [
-          "RVCA",
-          "Site rebuild - design system, component overrides, content surfaces",
+          "Neutral Initiative",
+          "RVCA's Breakthrough campaign focused on gender identity and acceptance of non-binary individuals - a bold move for a surf brand in 2018",
         ],
-        ["Accessibility", "WCAG 2.1 AA across all four brand sites"],
+        [
+          "Billabong Gift Guide",
+          "2016 and 2017 gift guides landers to drive seasonal sales",
+        ],
         [
           "Measurement",
           "GTM + structured data - portfolio-wide marketing analytics",
@@ -876,12 +902,18 @@ export const LANDER = {
   nameTop: "Adrian",
   nameBottom: "Barn.es",
   blurb:
-    "I build customer-facing products and internal platforms - most recently at <strong>Oracle Cloud Infrastructure</strong>, where I co-led UI delivery for a new first-party product on a pre-release framework. Deep in TypeScript and React; comfortable through Node, GraphQL, and the cloud when the problem calls for it.",
+    "I'm a software engineer who loves working on web applications.<br/><br/>I'm a full-stack engineer who prefers frontend architecture and technologies, and I enjoy collaborating with designers to create fun, beautiful user interfaces. Of course, you'll also find me building out an API data layer, standing up a backend and deploying to your favorite cloud provider (I spent 4 years with one of them).<br/><br/>For fun, you might find me working on a Twitch or Discord bot project. I do touch grass; I love rock climbing, spending time at the beach with my family and being a late-night gamer with close friends.",
   bottom: [
-    { label: "Based in", value: "San Juan Capistrano, CA" },
-    { label: "Currently", value: "Open to new work" },
-    { label: "Stack", value: "TS · React · Node · GraphQL" },
-    { label: "Also", value: "AI Workflow Lead · MCP" },
+    { label: "Based in", value: "Orange County, CA" },
+    { label: "Owner/Founder", value: "Apex Tech & Baypark Software" },
+    {
+      label: "Stack",
+      value: "TypeScript, React, Frontend Architecture, Java, Python",
+    },
+    {
+      label: "Current Projects",
+      value: "Agentic (AI) development, Saas Micro-projects",
+    },
   ],
   nav: [
     { label: "Work", href: "#oracle-hero" },

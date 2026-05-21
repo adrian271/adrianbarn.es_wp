@@ -84,7 +84,8 @@ export default function SideNav() {
 
   return (
     <nav
-      className={"spine" + (onLight ? " on-light" : "")}
+      // className={"spine" + (onLight ? " on-light" : "")}
+      className="spine"
       style={navStyle}
       aria-label="Progress through the work"
     >

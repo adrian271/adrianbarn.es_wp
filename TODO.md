@@ -23,10 +23,25 @@ Both depend on whether videos stay native `<video>` or move to a Cloudflare Stre
 
    Why parked: I like the cleaner UX but want to inventory which of the actual gallery videos are genuinely silent-decorative vs. audio-bearing before committing to the second mode. If only 1–2 videos qualify, it may not justify the extra type field — could just drop controls case-by-case via a one-off prop.
 
-## Feedback to address
+## Feedback from Ariel
 
 1. "It took me a minute to realize that you were showing the work before getting into the case study, and there is a lot going on visually, so it also took me a second to figure out which company I was looking out because the eyebrows are very small and subtle."
 2. "It's a lot to scroll through, I know you have the navigation on the side with logos, and I atually like that. but maybe they could be collapsible?"
 3. "give some other visual indication that you are going to the next job"
 4. "I think there is also some color choices I would maybe change just to make things easier to read too"
 5. Play with Copy first, then carousel after
+
+## Feedback from Kevin
+
+### ux notes:
+
+• consider changing header image to a video reel in the background or add parallax to existing image. alternatively, you can add slideshow of a couple more images
+• consider having a sticky nav at top, i know some people may not use side nav and may be annoyed to scroll up a bunch if they wanted to read intro or something
+• add another text treatment within the case studies, for example a block quote to highlight some data or a sentence that is important. this will help by adding good contrast for reader
+• refine gradients for each section to blend better (like how blast is)
+
+### content notes:
+
+• remove the Futures Fins section, just cuz some of the web visual design is a bit outdated
+• speed up the video on Blast by 3x so the scrolling is faster
+• add more imagery to support Soberlink, if struggling to find assets even some branded stuff from their website or product imagery
