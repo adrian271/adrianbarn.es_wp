@@ -18,7 +18,7 @@ type SpineItem = {
 const THROUGH_LINE = "#0085ff";
 
 const ITEMS: SpineItem[] = [
-  { id: "intro", short: "", accent: THROUGH_LINE, bookend: "top" },
+  { id: "intro", short: "Yo!", accent: THROUGH_LINE, bookend: "top" },
   ...CASE_STUDIES.map((cs) => ({
     id: cs.id,
     short: cs.shortName,
@@ -34,35 +34,37 @@ export default function SideNav() {
   const [onLight, setOnLight] = useState<boolean>(false);
   const [progress, setProgress] = useState<number>(0);
 
-  // Active section + light/dark tone swap (existing IntersectionObserver)
+  // Scroll-driven active section + progress fill.
+  //
+  // Active detection uses a deterministic "reading line" ~40% down the
+  // viewport: the active section is the last observed section whose top edge
+  // has scrolled above that line. This is monotonic with scroll position, so
+  // it can't flip-flop the way the previous IntersectionObserver did when
+  // multiple sections were simultaneously past a ratio threshold.
   useEffect(() => {
-    const ob = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting && e.intersectionRatio > 0.4) {
-            const el = e.target as HTMLElement;
-            const projectId = el.id.replace(/-(hero|body)$/, "");
-            setActiveId(projectId);
-            const tone = el.dataset.heroTone ?? el.dataset.tone;
-            setOnLight(tone === "light");
-          }
-        }
-      },
-      { threshold: [0.4, 0.6] },
-    );
     const selector = '#intro, #contact, [id$="-hero"], [id$="-body"]';
-    document.querySelectorAll(selector).forEach((s) => ob.observe(s));
-    return () => ob.disconnect();
-  }, []);
+    const sections = Array.from(
+      document.querySelectorAll<HTMLElement>(selector),
+    );
 
-  // Smooth scroll-progress fill
-  useEffect(() => {
     const compute = () => {
+      // Progress fill
       const doc = document.documentElement;
       const max = doc.scrollHeight - doc.clientHeight;
-      const pct = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
-      setProgress(pct);
+      setProgress(max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0);
+
+      // Active section via reading line
+      const line = window.innerHeight * 0.4;
+      let current: HTMLElement | undefined = sections[0];
+      for (const s of sections) {
+        if (s.getBoundingClientRect().top <= line) current = s;
+      }
+      if (!current) return;
+      setActiveId(current.id.replace(/-(hero|body)$/, ""));
+      const tone = current.dataset.heroTone ?? current.dataset.tone;
+      setOnLight(tone === "light");
     };
+
     compute();
     window.addEventListener("scroll", compute, { passive: true });
     window.addEventListener("resize", compute);
@@ -128,9 +130,10 @@ export default function SideNav() {
                       width={24}
                     />
                   ) : item.bookend === "top" ? (
-                    <svg viewBox="0 0 12 12" width="10" height="10">
-                      <circle cx="6" cy="6" r="3" fill="currentColor" />
-                    </svg>
+                    // <svg viewBox="0 0 12 12" width="10" height="10">
+                    //   <circle cx="6" cy="6" r="3" fill="currentColor" />
+                    // </svg>
+                    <span>👋</span>
                   ) : (
                     <svg viewBox="0 0 12 12" width="10" height="10">
                       <path

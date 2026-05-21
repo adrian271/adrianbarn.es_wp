@@ -460,7 +460,7 @@ a {
   position: relative;
   width: 100%;
   margin: 16px 0 8px;
-  border-radius: 8px;
+  border-radius: 0 0 16px 16px;
   overflow: hidden;
   background: #0a0a0b;
   outline: none;
@@ -1663,18 +1663,19 @@ a {
 }
 .spine-short {
   font-family: var(--sans-serif);
-  font-size: 14px;
-  font-weight: 500;
   letter-spacing: -0.01em;
   color: #fff;
   opacity: 0;
-  text-shadow:
-    0 0 2px #000,
-    0 0 2px #000;
+  /* text-shadow: 0 0 2px #000, 0 0 2px #000; */
+  font-size: 14px;
+  font-weight: 500;
   transition:
     color 0.2s,
     font-style 0.2s,
     opacity 0.2s;
+  background: #0000008c;
+  padding: 4px 8px;
+  border-radius: 8px;
 }
 /* Reveal all labels whenever any spine node is being hovered. */
 .spine:has(.spine-node:hover) .spine-short {
