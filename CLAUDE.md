@@ -62,7 +62,3 @@ Expected traffic is ~100 viewers/day, so shared hosting is sufficient and ISR ke
 ## Open questions blocking implementation
 
 The plan lists four questions the user needs to answer before GraphQL queries and route components can be written: which custom post types exist, what ACF fields each needs, whether pages like "about" come from WP or are hardcoded, and whether nav comes from a WP menu. If asked to start building the Next.js data layer or routes without these answers, surface the open questions first.
-
-## Sanity MCP note
-
-A Sanity MCP server is available in this environment. It is **not** part of this project's architecture — the CMS is WordPress. Ignore Sanity tools unless the user explicitly pivots away from the WP plan.

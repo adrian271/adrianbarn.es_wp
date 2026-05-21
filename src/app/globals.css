@@ -204,7 +204,7 @@ a {
   grid-template-columns: 280px 1fr;
   gap: 64px;
   padding: 72px 0;
-  border-top: 1px solid var(--cs-rule, #e3e3e3);
+  border-top: 1px solid var(--cs-accent);
   position: relative;
 }
 .cs-phase:first-child {
@@ -285,8 +285,9 @@ a {
   font-size: 15px;
   line-height: 1.5;
   padding-top: 16px;
-  border-top: 1px solid var(--cs-rule, #ececec);
+  border-top: 1px solid color-mix(in srgb, var(--cs-accent) 33%, transparent);
 }
+.cs-body[data-tone="dark"] .cs-bullets li:first-child,
 .cs-bullets li:first-child {
   border-top: none;
   padding-top: 0;
@@ -354,7 +355,7 @@ a {
 .cs-stack {
   margin-top: 48px;
   padding: 32px 0 0;
-  border-top: 1px solid var(--cs-rule, #e3e3e3);
+  border-top: 1px solid var(--cs-accent);
 }
 .cs-stack-label {
   font-family: var(--mono);
@@ -421,7 +422,7 @@ a {
   --cs-metric-bg: rgba(255, 255, 255, 0.04);
 }
 .cs-body[data-tone="dark"] .cs-bullets li {
-  border-top-color: rgba(255, 255, 255, 0.1);
+  border-top: 1px solid color-mix(in srgb, var(--cs-accent) 66%, transparent);
 }
 .cs-body[data-tone="dark"] .cs-bullets .b-text strong {
   color: var(--cs-accent);
