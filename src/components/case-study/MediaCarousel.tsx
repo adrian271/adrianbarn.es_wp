@@ -329,9 +329,12 @@ export default function MediaCarousel({
     "--carousel-accent": accent ?? "var(--cs-accent, var(--accent))",
   };
 
+  // If  at least one item has the desktopOnly flag, add a class to the carousel container. This allows us to hide the carousel on mobile if needed.
+  const isDesktopOnly = items.some((item) => item.desktopOnly);
+
   return (
     <div
-      className="carousel"
+      className={`carousel ${isDesktopOnly ? "desktop-only" : ""}`}
       ref={ref}
       tabIndex={0}
       style={style}

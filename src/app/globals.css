@@ -158,7 +158,7 @@ a {
 
 .cs-hero-meta {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   padding-top: 32px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -730,7 +730,13 @@ a {
   filter: grayscale() contrast(0.95) brightness(0.75);
   opacity: 0.35;
   z-index: 0;
+  background-repeat: no-repeat;
 }
+
+.cs-lander-image {
+  display: none;
+}
+
 .cs-lander-vignette {
   position: absolute;
   inset: 0;
@@ -2000,7 +2006,13 @@ a {
     font-size: 11px;
   }
   .cs-lander-bg {
-    background-position: 50%;
+    display: none;
+  }
+
+  .cs-lander-image {
+    display: inline-block;
+    margin: 32px 0 0;
+    border-radius: 8px;
   }
 
   /* Contact mobile */
@@ -2025,6 +2037,10 @@ a {
     flex-direction: column;
     gap: 6px;
   }
+
+  .carousel.desktop-only {
+    display: none;
+  }
 }
 
 @media (max-width: 720px) {
@@ -2034,6 +2050,12 @@ a {
   }
   .cs-prose {
     font-size: 17px;
+  }
+
+  .cs-lander-bottom {
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 16px;
   }
 }
 

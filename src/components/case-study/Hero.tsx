@@ -35,14 +35,14 @@ export default function CaseStudyHero({ data }: { data: CaseStudy }) {
 
         <div className="cs-hero-mid">
           <div className="cs-hero-kicker reveal in d1">{data.company}</div>
-          <h1
+          <h2
             className="cs-hero-title reveal in d2"
             dangerouslySetInnerHTML={{ __html: data.titleHtml }}
           />
           <p className="cs-hero-summary reveal in d3">{data.summary}</p>
         </div>
 
-        {/* <div className="cs-hero-meta reveal in d4">
+        <div className="cs-hero-meta reveal in d4">
           <div>
             <span className="label">Role</span>
             <span className="value">{data.role}</span>
@@ -51,15 +51,15 @@ export default function CaseStudyHero({ data }: { data: CaseStudy }) {
             <span className="label">Duration</span>
             <span className="value">{data.duration}</span>
           </div>
-          <div>
+          {/* <div>
             <span className="label">Team</span>
             <span className="value">{data.team}</span>
-          </div>
+          </div> */}
           <div>
             <span className="label">Years</span>
             <span className="value">{data.year}</span>
           </div>
-        </div> */}
+        </div>
       </div>
     </section>
   );

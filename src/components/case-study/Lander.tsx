@@ -54,6 +54,11 @@ export default function CaseStudyLander() {
               className="cs-lander-blurb"
               dangerouslySetInnerHTML={{ __html: LANDER.blurb }}
             />
+            <img
+              src="/adrian-mic-crop.png"
+              alt="Adrian Barnes, Principal Software Engineer"
+              className="cs-lander-image"
+            />
           </div>
         </div>
 

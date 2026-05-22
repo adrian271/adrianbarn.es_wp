@@ -38,6 +38,7 @@ export type HeroVisualKind = MockupKey;
  * link-out icon. `external` defaults to inferring from `http(s)://`.
  */
 type MediaLink = {
+  desktopOnly?: boolean;
   gallery: "top" | "bottom";
   href?: string;
   external?: boolean;
@@ -131,7 +132,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     num: "01",
     company: "Oracle Cloud Infrastructure",
     shortName: "Oracle",
-    role: "Principal MTS · IC-4",
+    role: "Principal Member of Technical Staff IC-4",
     year: "2022 - 2026",
     duration: "4 years",
     team: "4 engineers",
@@ -379,7 +380,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         type: "iframe",
         gallery: "bottom",
         src: "https://property-map-editor-testing.netlify.app",
-        caption: "Property Map - live demo of the operator editor",
+        caption: "Property Map - live demo of early-stage operator editor",
+        desktopOnly: true,
       },
     ],
   },
@@ -622,7 +624,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     team: "DTC engineering team",
     location: "Irvine, CA",
     summary:
-      "Frontend on Billabong Group's direct-to-consumer team - multi-brand e-commerce platform powering four global surf labels.",
+      "Senior Frontend Engineer on Billabong Group's direct-to-consumer team, eager to modernize and expand the reach of our e-commerce platform.",
     titleHtml:
       "<em style='color: #e8654f;'>Billabong Group</em>:<br />A surf brand conglomerate on an Omni-Channel mission.",
     bg: "#f5f0e6",
@@ -746,7 +748,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     num: "06",
     company: "Futures Fins",
     shortName: "Futures Fins",
-    role: "Generalist → Web Developer",
+    role: "Engineer / Web Developer",
     year: "2004 - 2016",
     duration: "12 years",
     team: "Generalist into web lead",
@@ -848,7 +850,7 @@ export const LANDER = {
   nameTop: "Adrian",
   nameBottom: "Barn.es",
   blurb:
-    "I'm a software engineer who loves working on web applications.<br/><br/>I'm a full-stack engineer who prefers frontend architecture and technologies, and I enjoy collaborating with designers to create fun, beautiful user interfaces. Of course, you'll also find me building out an API data layer, standing up a backend and deploying to your favorite cloud provider (I spent 4 years with one of them).<br/><br/>For fun, you might find me working on a Twitch or Discord bot project. I do touch grass; I love rock climbing, spending time at the beach with my family and being a late-night gamer with close friends.",
+    "I'm a Principal Software Engineer who loves working on web applications.<br /><br />As a full-stack developer who prefers frontend architecture and technologies, I enjoy collaborating with designers to create fun, beautiful user interfaces. Of course, you'll also find me building out an API data layer, standing up a backend and deploying to your favorite cloud provider (I spent 4 years working for one of them).<br /><br />For fun, you might find me working on a Twitch or Discord bot project. I do touch grass; I love rock climbing, spending time at the beach with my family and late at night, you might catch me gaming with my close friends.",
   bottom: [
     { label: "Based in", value: "Orange County, CA" },
     { label: "Owner/Founder", value: "Apex Tech & Baypark Software" },
