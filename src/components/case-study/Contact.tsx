@@ -33,14 +33,14 @@ export default function CaseStudyContact() {
         </div>
 
         <div className="contact-grid reveal d3">
-          <a href={`mailto:${CONTACT.email}`}>
+          {/* <a href={`mailto:${CONTACT.email}`}>
             <span className="label">Email</span>
             <span className="value">{CONTACT.email}</span>
-          </a>
-          <a href={`tel:${CONTACT.phone}`}>
+          </a> */}
+          {/* <a href={`tel:${CONTACT.phone}`}>
             <span className="label">Phone</span>
             <span className="value">{CONTACT.phoneDisplay}</span>
-          </a>
+          </a> */}
           <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">
             <span className="label">LinkedIn</span>
             <span className="value">{CONTACT.linkedinHandle}</span>

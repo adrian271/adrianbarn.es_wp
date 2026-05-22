@@ -26,11 +26,11 @@ export default function CaseStudyHero({ data }: { data: CaseStudy }) {
 
       <div className="cs-hero-inner">
         <div className="cs-hero-top reveal in">
-          <div className="case-tag">
+          {/* <div className="case-tag">
             <span>Case Study</span>
             <span style={{ margin: "0 12px", opacity: 0.4 }}>·</span>
             <span>{data.num}</span>
-          </div>
+          </div> */}
         </div>
 
         <div className="cs-hero-mid">

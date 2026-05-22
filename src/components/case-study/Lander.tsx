@@ -1,6 +1,15 @@
+"use client";
+
 import { LANDER } from "@/content/portfolio";
+import { useState, useEffect } from "react";
 
 export default function CaseStudyLander() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <section
       className="section cs-lander"
@@ -12,7 +21,8 @@ export default function CaseStudyLander() {
       <div className="section-inner cs-lander-inner">
         <header className="cs-lander-top reveal in">
           <div className="cs-lander-mark">
-            adrianbarn<span className="dot">.</span>es
+            adrianbarn
+            <span className={isMounted ? "mounted dot" : "dot"}>.</span>es
           </div>
           <nav className="cs-lander-nav">
             {LANDER.nav.map((n) => {

@@ -286,7 +286,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     titleHtml:
       "Lead Engineer, Project Owner, offshore liason, standards-setter.",
     summary:
-      "Solo-built an interactive multi-floor Property Map for self-storage operators - without a single map library.",
+      "Solo-built an interactive multi-floor Property Map for self-storage operators.",
     bg: "#e0f5f5",
     ink: "#1a2e35",
     rule: "#e3e3e3",
@@ -892,7 +892,7 @@ export const CONTACT = {
   kicker: "— Let's build something",
   headline:
     "<p>Have a product <em>idea</em>?💡</p><br/><p>Want to chat about it? </p>",
-  email: "shout@adrianbarn.es",
+  email: "",
   phone: "+19493066000",
   phoneDisplay: "949 · 306 · 6000",
   linkedin: "https://linkedin.com/in/adrian-barnes-software-engineer",
