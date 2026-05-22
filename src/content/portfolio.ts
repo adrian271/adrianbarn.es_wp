@@ -152,7 +152,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "oracle",
 
     problem: {
-      num: "01: Resource Analytics",
+      num: "01 Resource Analytics",
       name: "Shipping a new cloud product in 2026",
       prose:
         "Oracle's Resource Analytics was a brand-new first-party product on the OCI Console. We started with the fundamentals and built the entire stack - Frontend, Control Plane, Management Plane and Data Plane. We shipped a product, squashed bugs and measured its success. After 1.0, we evaluated what wasn't working, then developed new tools and documentation for the customer until we were satisfied that the product was a success.",
@@ -173,7 +173,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
-      num: "02: Acceleration Team",
+      num: "02 Acceleration Team",
       name: "Turning astronomical roadblocks into simple solutions",
       prose:
         "In 2024, I joined an acceleration initiative to radically reduce lead times for data center development planning. We precisely identified process pain points, transforming the creation of multi-week network panel schematics into a 1-minute compile. After 2 months of development, we shipped a React + Python app to serve as a tool for internal employees.",
@@ -191,7 +191,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     built: {
-      num: "03: Generative AI Demos",
+      num: "03 Generative AI Demos",
       name: "Creating experiences for Executives to present to the world",
       prose:
         "In 2023, I was brought on as part of a Tiger Team to develop experiences for a fast-approaching Oracle Cloud World Demo. I put together a UI for Oracle Health that takes several customer data points and compiles a solution for a physician to review. My demo, featuring all of the cues of a modern agentic interface, was chosen and presented by Clay Magouryk.",
@@ -411,7 +411,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "soberlink",
 
     problem: {
-      num: "01 - Identity Platform",
+      num: "01 Identity Platform",
       name: "Architecture, development and learning",
       prose:
         "Building Soberlink's identity platform UI as the sole frontend engineer, with end-to-end responsibility for sign-up, user information capture, multi-factor authentication setup, login, and account management flows. Our stack was Vue 3 (very early adoption), TypeScript, and PostCSS. The product shipped and remains live as a business-critical part of Soberlink's platform.",
@@ -432,7 +432,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
-      num: "02 - Component Library",
+      num: "02 Component Library",
       name: "Taking the time to build the essential basics",
       prose:
         "I was tasked with standardizing brand UI elements and web components. I worked closely with the designer to build the design system from scratch, bringing their work to life as a component library with a Storybook UI for all engineers to reference.",
@@ -525,7 +525,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "blast",
 
     problem: {
-      num: "01 - Investor-Ready Launch",
+      num: "01 Investor-Ready Launch",
       name: "Preparing a startup for its Hello World moment",
       prose:
         "Built the public marketing site that helped support the company's launch to roughly 75,000 users and a $12M seed raise. Later launched the corporate site for sibling product ATM.com, now a business generating $15M+ annually.",
@@ -540,7 +540,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
-      num: "02 - Web App Ownership",
+      num: "02 Web App Ownership",
       name: "Building and owning the web presence of a growing fintech startup",
       prose:
         "Acted as the lead web engineer at an early-stage fintech startup. Built and owned the company's marketing presence across product pivots in React, Gatsby, GraphQL, and Craft CMS with TypeScript, Sass, and CSS3 animations. Responsible for Plaid integrations on the frontend for bank-account linking and identity/financial-data verification flows in user signup and account-funding paths. Architected the Gatsby-based sponsored-content savings app where users took practice tests to deposit money into savings; mentored a junior engineer through the project. Reused the same foundation to ship a Junior Achievement partner build.",
@@ -560,7 +560,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       ],
     },
     built: {
-      num: "03 - Backend & Admin Tools",
+      num: "03 Backend & Admin Tools",
       name: "Backend services contributor and internal admin tool builder",
       prose:
         "Contributed Rails MVC and data modeling on Campaigns and Missions (user-facing earning features) and built significant operator admin tooling for managing users, campaigns, and missions on a microservice-based PostgreSQL backend.",
