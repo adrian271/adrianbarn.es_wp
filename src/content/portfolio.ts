@@ -136,7 +136,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     duration: "4 years",
     team: "4 engineers",
     location: "Remote · Austin TX HQ",
-    titleHtml: "Principal-level solutions at an Enterprise Giant.",
+    titleHtml:
+      "<em style='color: #C2D4D4;'>Oracle</em>:<br />Principal-level solutions at an Enterprise Giant.",
     summary:
       "Greenfield Product, AI Automation, Acceleration and Tiger Team Solutions.",
     bg: "#C2D4D4",
@@ -284,7 +285,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     team: "Small product team",
     location: "Remote · Irvine CA",
     titleHtml:
-      "Lead Engineer, Project Owner, offshore liason, standards-setter.",
+      "<em style='color: #e0f5f5;'>Tenant</em>:<br />Lead Engineer, Project Owner, offshore liason, standards-setter.",
     summary:
       "Solo-built an interactive multi-floor Property Map for self-storage operators.",
     bg: "#e0f5f5",
@@ -313,13 +314,13 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
         [
           "Scope",
-          "Solo build - design partnership but I was the only engineer on the Property Map",
+          "Solo build - design team partnership, solo engineer on Property Map",
         ],
       ],
     },
 
     approach: {
-      num: "Component Library Architecture",
+      num: "Component Library",
       name: "Setting standards for a growing product and engineering team",
       prose:
         "I joined as a senior IC on the frontend team for Hummingbird, Tenant's self-storage management platform, where component sprawl had become a major hindrance to development. I identified and led the solution: a shared component library packaged as an internal NPM module and hosted via Storybook. I served as the primary engineer with a supporting frontend engineer, shipped the library, integrated it with Hummingbird, and designed it for cross-project use.",
@@ -395,7 +396,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     location: "Cypress, CA",
     summary:
       "Built the frontend layer from scratch alongside an emerging design system at a healthcare company modernizing from .NET.",
-    titleHtml: "Identity, with <em>unbeatable</em> reliability.",
+    titleHtml:
+      "<em style='color: #ddf9ff;'>Soberlink</em>:<br />Modernizing Healthcare to help patients ease their way to recovery.",
     bg: "#ddf9ff",
     rule: "#e3e3e3",
     ink: "#1a2e3a",
@@ -407,18 +409,18 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "soberlink",
 
     problem: {
-      num: "01 - Greenfield Identity Platform",
-      name: "Identity platform for a healthcare company",
+      num: "01 - Identity Platform",
+      name: "Architecture, development and learning",
       prose:
-        "I built Soberlink's identity platform UI as the sole frontend engineer, with end-to-end responsibility for sign-up, user information capture, multi-factor authentication setup, login, and account management flows. Our stack was Vue 3 (very early adoption), TypeScript, and PostCSS. The product shipped and remains live as a business-critical part of Soberlink's platform.",
+        "Building Soberlink's identity platform UI as the sole frontend engineer, with end-to-end responsibility for sign-up, user information capture, multi-factor authentication setup, login, and account management flows. Our stack was Vue 3 (very early adoption), TypeScript, and PostCSS. The product shipped and remains live as a business-critical part of Soberlink's platform.",
       bullets: [
         [
           "Stakes",
-          "Healthcare-grade reliability. Court-admissible monitoring data. Cannot fail.",
+          "Healthcare-grade reliability. Court-admissible monitoring data. HIPAA compliant.",
         ],
         [
-          "State",
-          "Greenfield Vue layer. Design system being born in parallel.",
+          "Situation",
+          "Greenfield Vue layer. Design system developed in parallel.",
         ],
         [
           "Role",
@@ -428,18 +430,15 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
-      num: "02 - Component Library Architecture",
-      name: "Component Library Architecture",
+      num: "02 - Component Library",
+      name: "Taking the time to build the essential basics",
       prose:
         "I was tasked with standardizing brand UI elements and web components. I worked closely with the designer to build the design system from scratch, bringing their work to life as a component library with a Storybook UI for all engineers to reference.",
       bullets: [
-        [
-          "Cadence",
-          "Daily designer/engineer pairing - design decisions made in code, not Figma",
-        ],
+        ["Cadence", "Daily designer/engineer pairing"],
         [
           "Library",
-          "Extracted reusable UI into a private library + Storybook from day one",
+          "Extracted reusable UI into a private library + Storybook.js",
         ],
         [
           "Quality",
@@ -511,7 +510,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     location: "Costa Mesa, CA",
     summary:
       "Primary web engineer at an early-stage fintech turning mobile games into savings accounts.",
-    titleHtml: "Save more than just <em>the princess.</em>",
+    titleHtml:
+      "<em>Blast</em>:<br />Pioneering the web properties of a break-through fintech startup.",
     bg: "#0a0418",
     ink: "#e8e9f0",
     rule: "rgba(255,255,255,0.12)",
@@ -523,26 +523,23 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "blast",
 
     problem: {
-      num: "01",
-      name: "Investor-Ready Launch",
+      num: "01 - Investor-Ready Launch",
+      name: "Preparing a startup for its Hello World moment",
       prose:
         "Built the public marketing site that helped support the company's launch to roughly 75,000 users and a $12M seed raise. Later launched the corporate site for sibling product ATM.com, now a business generating $15M+ annually.",
       bullets: [
-        ["Timing", "Marketing site needed live before the seed raise closed"],
+        ["Timing", "Marketing site for seed raise"],
+        ["Audience", "Content team needed self-service editing post-launch"],
         [
-          "Audience",
-          "Non-technical content team needed self-service editing post-launch",
-        ],
-        [
-          "Adjacent",
-          "Product surfaces - Learn & Earn, white-label partner funnels - followed quickly",
+          "Media",
+          "Ensuring web properties interfaced with social media sites, MailChimp collection, authored marketing and transactional emails",
         ],
       ],
     },
 
     approach: {
-      num: "02",
-      name: "Web App Ownership",
+      num: "02 - Web App Ownership",
+      name: "Building and owning the web presence of a growing fintech startup",
       prose:
         "Acted as the lead web engineer at an early-stage fintech startup. Built and owned the company's marketing presence across product pivots in React, Gatsby, GraphQL, and Craft CMS with TypeScript, Sass, and CSS3 animations. Responsible for Plaid integrations on the frontend for bank-account linking and identity/financial-data verification flows in user signup and account-funding paths. Architected the Gatsby-based sponsored-content savings app where users took practice tests to deposit money into savings; mentored a junior engineer through the project. Reused the same foundation to ship a Junior Achievement partner build.",
       bullets: [
@@ -552,40 +549,22 @@ export const CASE_STUDIES: CaseStudy[] = [
         ],
         [
           "Product",
-          "Gatsby for Learn & Earn - sponsored-content savings surface",
+          "React + TypeScript + Gatsby for Learn & Earn - sponsored-content savings surface through Plain integrations",
         ],
         [
           "Reuse",
           "Same foundation powered white-label sign-up funnels (incl. Junior Achievement)",
-        ],
-        [
-          "Backend",
-          "Rails contributions to Campaigns, Missions, and admin tooling",
         ],
       ],
     },
     built: {
-      num: "03",
-      name: "Backend & Admin Tools",
+      num: "03 - Backend & Admin Tools",
+      name: "Backend services contributor and internal admin tool builder",
       prose:
         "Contributed Rails MVC and data modeling on Campaigns and Missions (user-facing earning features) and built significant operator admin tooling for managing users, campaigns, and missions on a microservice-based PostgreSQL backend.",
       bullets: [
-        [
-          "Marketing",
-          "Craft CMS + GraphQL - content team self-serve, Optimizely A/B baked in",
-        ],
-        [
-          "Product",
-          "Gatsby for Learn & Earn - sponsored-content savings surface",
-        ],
-        [
-          "Reuse",
-          "Same foundation powered white-label sign-up funnels (incl. Junior Achievement)",
-        ],
-        [
-          "Backend",
-          "Rails contributions to Campaigns, Missions, and admin tooling",
-        ],
+        ["Backend", "Contributions to Micro-services: Campaigns and Missions"],
+        ["Stack", "Ruby on Rails, PostgreSQL, jQuery UI admin tool"],
       ],
     },
     outcome: {
@@ -644,7 +623,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     location: "Irvine, CA",
     summary:
       "Frontend on Billabong Group's direct-to-consumer team - multi-brand e-commerce platform powering four global surf labels.",
-    titleHtml: "One platform, four <em>surf</em> brands.",
+    titleHtml:
+      "<em style='color: #e8654f;'>Billabong Group</em>:<br />A surf brand conglomerate on an Omni-Channel mission.",
     bg: "#f5f0e6",
     ink: "#1a1a1a",
     rule: "#d8d0bc",
@@ -656,7 +636,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "billabong",
 
     problem: {
-      num: "01",
+      num: "01 Multi-brand E-commerce",
       name: "E-commerce Frontend Lead",
       prose:
         "Billabong Group ran multiple brands including Billabong, RVCA, Element, Von Zipper. As a lead frontend engineer I maintained and developed on a shared CakePHP + Tomcat e-commerce codebase with per-brand template overrides. The catalog was massive, the brands had wildly different aesthetics, and the company needed both deep visual differentiation per brand and operational efficiency from the shared platform.",
@@ -678,8 +658,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     approach: {
-      num: "02",
-      name: "E-commerce Frontend Lead",
+      num: "02 Premium Brand Upgrades",
+      name: "Solo rebuild of RVCA.com's E-com UI",
       prose:
         "I led a near-complete rebuild of the RVCA site - a label whose visual language was the furthest from the platform default - pushing the override system to its limit. After that, I drove WCAG remediation across all four brands, set up Google Tag Manager and structured-data SEO, and contributed UI updates to Element and Von Zipper.",
       bullets: [
@@ -693,14 +673,14 @@ export const CASE_STUDIES: CaseStudy[] = [
     },
 
     built: {
-      num: "03",
-      name: "Fast Seasonal Landing Sites",
+      num: "03 Seasonal Landing Sites",
+      name: "Fast-paced cross team collaboration and delivery",
       prose:
         "I worked closely with brand teams to quickly build seasonal landing pages: highly interactive experiences used for pushing sales campaigns. This was a test of how quickly good work could be turned around and deployed.",
       bullets: [
         [
           "Neutral Initiative",
-          "RVCA's Breakthrough campaign focused on gender identity and acceptance of non-binary individuals - a bold move for a surf brand in 2018",
+          "RVCA's Breakthrough campaign focused on gender identity and acknowledgment of the needs of non-binary individuals",
         ],
         [
           "Billabong Gift Guide",
@@ -735,12 +715,28 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     gallery: [
       {
-        gallery: "bottom",
+        gallery: "top",
         type: "video",
         src: "/portfolio-assets/billabong/billabong-womens-gift-collection-2016-2017.mp4",
         caption: "Billabong 2016-2017 Gift Guide - VIEW LIVE DEMO",
         autoplay: true,
         href: "https://billabong-archive-womens-gift-guide.netlify.app/beach/",
+        loop: true,
+      },
+      {
+        gallery: "top",
+        type: "image",
+        src: "/portfolio-assets/billabong/billabong-netsuite-site.png",
+        caption: "Billabong 2017 Gift Guide",
+      },
+      {
+        gallery: "bottom",
+        type: "video",
+        src: "/portfolio-assets/billabong/rvca-swim-2018.mp4",
+        caption: "RVCA Swim 2018 - VIEW LIVE DEMO",
+        href: "https://rvca-swim-2018-archive.netlify.app/",
+        autoplay: true,
+        loop: true,
       },
     ],
   },
@@ -755,9 +751,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     duration: "12 years",
     team: "Generalist into web lead",
     location: "San Clemente, CA",
-    summary:
-      "Twelve years at a surf-industry hardgoods manufacturer - generalist engineer who grew with the company into its web development function.",
-    titleHtml: "Twelve years. <em>One surf co.</em>",
+    titleHtml:
+      "<em style='color: #00a3e0;'>Futures Fins</em>:<br />E-commerce, web development, and learning to ship code",
+    summary: "Engineer, E-commerce, Internal Tooling",
     bg: "#ededed",
     ink: "#1a1a1a",
     rule: "#cccccc",
@@ -769,43 +765,31 @@ export const CASE_STUDIES: CaseStudy[] = [
     mockup: "futures",
 
     problem: {
-      num: "02",
-      name: "=====",
-      prose:
-        "I joined Futures Fins in 2004 as a young generalist at a fin manufacturer in San Clemente. There was no web team - the company had a basic brochure site and a need to grow into e-commerce as direct-to-consumer became viable for surf hardgoods. Over the next twelve years, I grew with the company.",
-      bullets: [
-        ["Era", "2004 - pre-React, pre-Node, pre-most-things"],
-        [
-          "Role",
-          'Generalist with web sensibilities - "can you make this work?"',
-        ],
-        ["Arc", "Brochure site → corporate site → full Magento storefront"],
-      ],
-    },
-
-    approach: {
-      num: "02",
-      name: "=====",
+      num: "01 E-commerce and Web Development",
+      name: "E-Commerce Solution Seeker",
       prose:
         "I grew the company's web development function as the need emerged. I built and maintained the corporate site, picked up PHP and SQL as the catalog needs got serious, and led development on the Magento storefront when DTC e-commerce became a strategic priority for the brand.",
       bullets: [
         ["Foundation", "Built and maintained the corporate Futures Fins site"],
         ["Skills", "Self-taught the LAMP stack as the company's needs grew"],
-        ["Storefront", "Led development on Magento/PHP e-commerce storefront"],
       ],
     },
 
-    built: {
-      num: "02",
-      name: "=====",
+    approach: {
+      num: "02 E-commerce Frontend Lead",
+      name: "Lead on expanding the company's e-commerce capabilities",
       prose:
         "The Futures Fins corporate site, the Magento storefront, and twelve years of incremental product launches, team-rider campaigns, and seasonal collection drops. This is where I learned to ship - not at startup-cadence speed, but at the steady cadence of a real business serving real customers.",
       bullets: [
-        ["Corporate site", "Built and maintained for over a decade"],
+        [
+          "Corporate site",
+          "Built and maintained experiences for new products and promotions",
+        ],
         ["E-commerce", "Magento + PHP storefront - full implementation lead"],
-        ["Cadence", "Twelve years of product launches and seasonal campaigns"],
       ],
     },
+
+    built: false,
 
     outcome: {
       num: "02",
@@ -891,7 +875,7 @@ export const LANDER = {
 export const CONTACT = {
   kicker: "— Let's build something",
   headline:
-    "<p>Have a product <em>idea</em>?💡</p><br/><p>Want to chat about it? </p>",
+    '<p>Have a product idea?💡</p><br/><p>Want to chat about it? </p><br/><p>Contact me on <a href="https://linkedin.com/in/adrian-barnes-software-engineer" target="_blank"><em>LinkedIn</em></a>!</p>',
   email: "",
   phone: "+19493066000",
   phoneDisplay: "949 · 306 · 6000",

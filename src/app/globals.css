@@ -140,6 +140,7 @@ a {
   letter-spacing: -0.025em;
   margin: 0;
   text-wrap: balance;
+  text-transform: capitalize;
 }
 .cs-hero-title em {
   font-style: italic;

@@ -282,7 +282,7 @@ function SlideWrapper({
     <a
       href={item.href}
       className="carousel-slide-link"
-      target={external ? "_blank" : undefined}
+      target="_blank"
       rel={external ? "noreferrer noopener" : undefined}
     >
       {children}

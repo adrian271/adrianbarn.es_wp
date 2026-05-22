@@ -326,24 +326,24 @@ export default function HeroVisual({ kind }: { kind: HeroVisualKind }) {
               height: "100%",
             }}
           >
-            <rect
+            {/* <rect
               x={200}
               y={540}
               width={800}
               height={60}
               fill="rgba(255,255,255,0.8)"
               rx={4}
-            />
+            /> */}
             {/* <polygon points="350,540 420,340 380,540" fill="rgba(0,0,0,0.65)" />
             <polygon points="600,540 670,300 630,540" fill="rgba(0,0,0,0.65)" />
             <polygon points="850,540 920,360 880,540" fill="rgba(0,0,0,0.65)" /> */}
-            <ellipse
+            {/* <ellipse
               cx={600}
               cy={608}
               rx={400}
               ry={14}
               fill="rgba(0,0,0,0.25)"
-            />
+            /> */}
           </svg>
         </div>
       );
