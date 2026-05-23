@@ -37,6 +37,16 @@ export const metadata: Metadata = {
     locale: "en_US",
     type: "website",
     // og:image is auto-wired from app/opengraph-image.tsx
+    videos: [
+      {
+        // Absolute URLs only — Facebook's scraper rejects relative paths.
+        url: `${SITE.url}/assets/personal-site-open-graph-video.mp4`,
+        secureUrl: `${SITE.url}/assets/personal-site-open-graph-video.mp4`,
+        type: "video/mp4",
+        width: 852,
+        height: 480,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
