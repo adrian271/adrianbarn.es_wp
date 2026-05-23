@@ -26,8 +26,24 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE.url),
   title: SITE.title,
   description: SITE.description,
+  openGraph: {
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    locale: "en_US",
+    type: "website",
+    // og:image is auto-wired from app/opengraph-image.tsx
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+    // twitter:image falls back to opengraph-image if no twitter-image file
+  },
 };
 
 export default function RootLayout({
