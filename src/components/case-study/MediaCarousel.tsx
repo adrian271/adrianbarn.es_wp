@@ -402,7 +402,7 @@ export default function MediaCarousel({
           </>
         )}
 
-        <div className="carousel-type-tag">{current.type.toUpperCase()}</div>
+        {/* <div className="carousel-type-tag">{current.type.toUpperCase()}</div> */}
       </div>
 
       <div className="carousel-footer">
