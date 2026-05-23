@@ -725,12 +725,12 @@ export const CASE_STUDIES: CaseStudy[] = [
         href: "https://billabong-archive-womens-gift-guide.netlify.app/beach/",
         loop: true,
       },
-      {
-        gallery: "top",
-        type: "image",
-        src: "/portfolio-assets/billabong/billabong-netsuite-site.png",
-        caption: "Billabong 2016 Homepage - Netsuite Commerce",
-      },
+      // {
+      //   gallery: "top",
+      //   type: "image",
+      //   src: "/portfolio-assets/billabong/billabong-netsuite-site.png",
+      //   caption: "Billabong 2016 Homepage - Netsuite Commerce",
+      // },
       {
         gallery: "bottom",
         type: "video",
