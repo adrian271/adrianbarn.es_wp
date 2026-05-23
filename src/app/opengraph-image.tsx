@@ -10,7 +10,7 @@ import { ImageResponse } from "next/og";
 // no separate twitter-image file exists), thanks to the Metadata file
 // conventions: https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
 
-export const alt = "Adrian Barnes — Principal Frontend Engineer";
+export const alt = "Adrian Barnes — Principal Software Engineer";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
