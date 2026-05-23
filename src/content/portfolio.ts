@@ -729,7 +729,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         gallery: "top",
         type: "image",
         src: "/portfolio-assets/billabong/billabong-netsuite-site.png",
-        caption: "Billabong 2017 Gift Guide",
+        caption: "Billabong 2016 Homepage - Netsuite Commerce",
       },
       {
         gallery: "bottom",
