@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "og": "curl -fsS http://localhost:3000/opengraph-image -o /tmp/og-preview.png && open /tmp/og-preview.png"
   },
   "dependencies": {
     "next": "16.2.6",
