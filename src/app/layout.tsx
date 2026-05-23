@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     videos: [
       {
         // Absolute URLs only — Facebook's scraper rejects relative paths.
-        url: `${SITE.url}/assets/personal-site-open-graph-video.mp4`,
-        secureUrl: `${SITE.url}/assets/personal-site-open-graph-video.mp4`,
+        url: `${SITE.url}/assets/adrian-barnes-principal-software-engineer-preview.mp4`,
+        secureUrl: `${SITE.url}/assets/adrian-barnes-principal-software-engineer-preview.mp4`,
         type: "video/mp4",
         width: 852,
         height: 480,
